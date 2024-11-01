@@ -1,0 +1,35 @@
+\begin{thebibliography}{1}
+
+\bibitem{Chaplot2017}
+Devendra~Singh Chaplot, Kanthashree~Mysore Sathyendra, Rama~Kumar Pasumarthi,
+  Dheeraj Rajagopal, and Ruslan Salakhutdinov.
+\newblock Gated-attention architectures for task-oriented language grounding.
+\newblock 6 2017.
+
+\bibitem{chevalier2018babyai}
+Maxime Chevalier-Boisvert, Dzmitry Bahdanau, Salem Lahlou, Lucas Willems,
+  Chitwan Saharia, Thien~Huu Nguyen, and Yoshua Bengio.
+\newblock Babyai: A platform to study the sample efficiency of grounded
+  language learning.
+\newblock {\em arXiv preprint arXiv:1810.08272}, 2018.
+
+\bibitem{MinigridMiniworld23}
+Maxime Chevalier{-}Boisvert, Bolun Dai, Mark Towers, Rodrigo Perez{-}Vicente,
+  Lucas Willems, Salem Lahlou, Suman Pal, Pablo~Samuel Castro, and Jordan
+  Terry.
+\newblock Minigrid {\&} miniworld: Modular {\&} customizable reinforcement
+  learning environments for goal-oriented tasks.
+\newblock In {\em Advances in Neural Information Processing Systems 36, New
+  Orleans, LA, USA}, December 2023.
+
+\bibitem{Oh2017}
+Junhyuk Oh, Satinder Singh, Honglak Lee, and Pushmeet Kohli.
+\newblock Zero-shot task generalization with multi-task deep reinforcement
+  learning.
+\newblock 6 2017.
+
+\bibitem{Tessler2020}
+Chen Tessler, Shahar Givony, Tom Zahavy, Daniel~J Mankowitz, and Shie Mannor.
+\newblock A deep hierarchical approach to lifelong learning in minecraft.
+
+\end{thebibliography}

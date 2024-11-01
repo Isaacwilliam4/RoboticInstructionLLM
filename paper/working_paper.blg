@@ -1,51 +1,49 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: working_paper.aux
-I couldn't open style file acl_natbib.bst
----line 44 of file working_paper.aux
- : \bibstyle{acl_natbib
- :                     }
-I'm skipping whatever remains of this command
-I found no style file---while reading file working_paper.aux
-You've used 8 entries,
-            0 wiz_defined-function locations,
-            96 strings with 678 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
+The style file: plain.bst
+Database file #1: custom.bib
+Warning--empty journal in Chaplot2017
+Warning--empty journal in Oh2017
+You've used 5 entries,
+            2118 wiz_defined-function locations,
+            522 strings with 5225 characters,
+and the built_in function-call counts, 1867 in all, are:
+= -- 149
+> -- 165
 < -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
++ -- 66
+- -- 60
+* -- 151
+:= -- 344
+add.period$ -- 14
+call.type$ -- 5
+change.case$ -- 45
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 7
+duplicate$ -- 51
+empty$ -- 102
+format.name$ -- 60
+if$ -- 351
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+int.to.str$ -- 5
+missing$ -- 4
+newline$ -- 27
+num.names$ -- 10
+pop$ -- 57
+preamble$ -- 1
+purify$ -- 40
 quote$ -- 0
-skip$ -- 0
+skip$ -- 38
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 26
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
-(There were 2 error messages)
+type$ -- 20
+warning$ -- 2
+while$ -- 10
+width$ -- 6
+write$ -- 47
+(There were 2 warnings)
