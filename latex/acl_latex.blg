@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: acl_latex.aux
+The style file: acl_natbib.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: custom.bib
+Warning--to sort, need editor or key in Liu2016
+Warning--empty journal in Anderson2017
+Warning--empty journal in Chaplot2017
+Warning--empty journal in Oh2017
+Warning--empty year in Tessler2020
+Warning--empty journal in Wang2024
+You've used 8 entries,
+            3734 wiz_defined-function locations,
+            784 strings with 8296 characters,
+and the built_in function-call counts, 6857 in all, are:
+= -- 454
+> -- 529
+< -- 1
++ -- 193
+- -- 184
+* -- 574
+:= -- 1114
+add.period$ -- 25
+call.type$ -- 8
+change.case$ -- 102
+chr.to.int$ -- 9
+cite$ -- 16
+duplicate$ -- 375
+empty$ -- 400
+format.name$ -- 204
+if$ -- 1369
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 101
+newline$ -- 38
+num.names$ -- 28
+pop$ -- 256
+preamble$ -- 1
+purify$ -- 93
+quote$ -- 0
+skip$ -- 289
+stack$ -- 0
+substring$ -- 93
+swap$ -- 212
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 72
+warning$ -- 6
+while$ -- 21
+width$ -- 0
+write$ -- 86
+(There were 6 warnings)

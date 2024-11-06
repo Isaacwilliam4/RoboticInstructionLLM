@@ -6,7 +6,7 @@
 
 % Change "review" to "final" to generate the final (sometimes called camera-ready) version.
 % Change to "preprint" to generate a non-anonymous version with page numbers.
-\usepackage[review]{acl}
+\usepackage{acl}
 
 % Standard package includes
 \usepackage{times}
@@ -59,16 +59,13 @@
 %         Author 2 \\ Address line \\ ... \\ Address line \And
 %         Author 3 \\ Address line \\ ... \\ Address line}
 
-\author{First Author \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  \texttt{email@domain} \\\And
+\author{Isaac Peterson \\
+  \texttt{isaac.peterson@usu.edu} \\\And
   Second Author \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  \texttt{email@domain} \\}
+  \texttt{email@domain} \\\And 
+  Third Author \\
+  \texttt{email@domain} 
+  }
 
 %\author{
 %  \textbf{First Author\textsuperscript{1}},
@@ -111,32 +108,44 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-  As technologies continue to advance, the integration of robots into every day life is continuing to increase. As humans rely mostly on speech for communication and instruction, it is essential that robots are also developed to understand and decipher language, executing commands via language effectively and efficiently. 
+  In this project, we explore the application of reinforcement learning (RL) to train an agent capable of navigating a 2D grid environment and identifying geometric shapes with distinct colors. The agent recieves instruction via natural langauge and then the agent moves one space at a time across the grid, using RL techniques to learn an optimal policy for efficiently locating and identifying shapes such as green triangles and red squares. We define the task as a partially observable Markov decision process (POMDP), where the agent's observations are limited to the grid space it occupies. Our approach involves implementing Reinforcement Learning to teach the agent to maximize rewards by minimizing the time and steps required to find and correctly identify a shape. The results demonstrate how reinforcement learning can be applied to shape recognition and navigation tasks, with potential applications in robotics, search-and-rescue missions, and autonomous systems. If time permits, we want to further explore what modifications need to be made in order to command a fleet of agents to accomplish tasks in an optimal manner.
+
 \end{abstract}
 
 \section{Introduction}
+As technologies continue to advance, the integration of robots into every day life is continuing to increase. As humans rely mostly on speech for communication and instruction, it is essential that robots are also developed to understand and decipher language, executing commands via effectively and efficiently. 
 
-In this project, we explore the application of reinforcement learning (RL) to train an agent capable of navigating a 2D grid environment and identifying geometric shapes with distinct colors. The agent moves one space at a time across the grid, using RL techniques to learn an optimal policy for efficiently locating and identifying shapes such as green triangles and red squares. We define the task as a partially observable Markov decision process (POMDP), where the agent's observations are limited to the grid space it occupies. Our approach involves implementing Reinforcement Learning to teach the agent to maximize rewards by minimizing the time and steps required to find and correctly identify a shape. The results demonstrate how reinforcement learning can be applied to shape recognition and navigation tasks, with potential applications in robotics, search-and-rescue missions, and autonomous systems. If time permits, we want to further explore what modifications need to be made in order to command a fleet of agents to accomplish tasks in an optimal manner.
+There are a myriad of challenges that one confronts when attempting to solve this problem. First and foremost, establishing an interface between the spoken command and correct execution of that command. To properly execute the spoken command, the agent needs to have an accurate understanding of its environment, which in the real world can become extremely complex. Initial attempts were made by utilizing more logic based methods to help the robot understand the task that needs to be solved \cite{Liu2016}. To mitigate the challenges that come with real world interpretation, many researchers defaulted to simulations to instruct agents in a more structured world.
+
+Video games form a natural challenge for agents, with clear tasks to complete in a very structured world. \cite{Chaplot2017} used the environment in the video game DOOM\texttrademark to train their agent to follow natural language instructions, with other researchers using similiary techniques in Minecraft\texttrademark \cite{Tessler2020}, and even developing their own virtual environments for natural language task completion \cite{Anderson2017} \cite{Wang2024}. 
+
+Our goal is to use the simplified environment in Minigrid \cite{MinigridMiniworld23} to explore the process of natural langauge task completion, with more research on the multi-agent natural language task completion problem. Where instead of instructing a single agent to complete a task, we instruct a fleet of agents and explore the challenges that come with the increased number of agents along with solution to address these challenges. 
 
 \section{Related Work}
-Most of the work in this project will be based on the work done by \cite{Chaplot2017}. They utilize a combination of large language models and reinforcement learning to help an agent understand specific instructions to navigate in the game environment of doom. Others utlized the world of minecraft to help agents complete tasks, with less of a focus on instruction and more on generalized learning rather than interpreting language \cite{Oh2017}, \cite{Tessler2020}. Combining the implementation of \cite{Chaplot2017} with the Minigrid environment \cite{MinigridMiniworld23}, \cite{chevalier2018babyai} we can further explore the challenging problem of robotic instruction with large language models.
+Most of the work in this project will be based on the work done by \cite{Chaplot2017}. They utilize a combination of large language models and reinforcement learning to help an agent understand specific instructions to navigate in the game environment of doom. Others utlized the world of minecraft to help agents complete tasks, with less of a focus on instruction and more on generalized learning rather than interpreting language \cite{Oh2017}, \cite{Tessler2020}. Combining the implementation of \cite{Chaplot2017} with the Minigrid environment \cite{MinigridMiniworld23}, \cite{chevalier2018babyai} we can further explore the challenging problem of robotic instruction with large language models, with the added challenge of addressing multiple agents.
 
-\section{Experimental Design}
+\section{Methods}
 
-\begin{figure*}[t]
+The Minigrid environment is available on a public repository in github. Which will form the foundation for the work that we will present in this research. 
+
+\begin{figure*}[!t]
   \centering
   \includegraphics[width=\linewidth]{figs/stateprocessing.png}
-  \caption{State processing method as developed by \cite{Chaplot2017}}
+  \caption{State processing method as developed by \cite{Chaplot2017}.}
   \label{fig:stateprocess}
 \end{figure*}
 
-Using a similiar setup as noted in Figure~\ref{fig:stateprocess}, we will use the Minigrid environment in place of DOOM to train our agent to complete specified tasks.
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\linewidth]{figs/modeloverviewactual.pdf}
+  \caption{Our approach to solving the multi-agent natural language task-solving problem, showing layers for each agent.}
+  \label{fig:modeloverview}
+\end{figure*}
 
-\appendix
 
-\section{Example Appendix}
-\label{sec:appendix}
 
-This is an appendix.
 
+% \bibliographystyle{plain}
+
+\bibliography{custom}
 \end{document}
