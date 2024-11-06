@@ -1,0 +1,19 @@
+# Fdb version 3
+["pdflatex"] 1730933069 "/home/isaacp/research/repos/RoboticInstructionLLM/acl-style-files/latex/acl_latex.tex" "/home/isaacp/research/repos/RoboticInstructionLLM/acl-style-files/latex/acl_latex.pdf" "acl_latex" 1730933069
+  "/etc/texmf/web2c/texmf.cnf" 1730932731 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/isaacp/research/repos/RoboticInstructionLLM/acl-style-files/latex/acl_latex.aux" 1730933069 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/isaacp/research/repos/RoboticInstructionLLM/acl-style-files/latex/acl_latex.tex" 1730933069 14274 88d6eebfcf8098d419ef701792fedc23 ""
+  "/home/isaacp/research/repos/RoboticInstructionLLM/acl-style-files/latex/xcolor.sty" 0 -1 0 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1580683321 20023 e427dd9e17e239bf926ef3aab67fe35e ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo" 1580683321 8462 61fdf79debfc3dc4dab35ec6cf83fbf7 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1730932741 4791332 fbc8c2c9a6a648577ba6d2768a63ff8d ""
+  "acl.sty" 1730933006 11597 da9a94cfb2d73b4ccce758d297ef675a ""
+  "acl_latex.tex" 1730933069 14274 88d6eebfcf8098d419ef701792fedc23 ""
+  "xcolor.sty" 0 -1 0 ""
+  (generated)
+  "acl_latex.log"
+  "/home/isaacp/research/repos/RoboticInstructionLLM/acl-style-files/latex/acl_latex.log"
+  "/home/isaacp/research/repos/RoboticInstructionLLM/acl-style-files/latex/acl_latex.pdf"
