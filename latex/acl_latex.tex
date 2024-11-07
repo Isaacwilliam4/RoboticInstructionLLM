@@ -125,15 +125,18 @@ Our goal is to use the simplified environment in Minigrid \cite{MinigridMiniworl
 Most of the work in this project will be based on the work done by \cite{Chaplot2017}. They utilize a combination of large language models and reinforcement learning to help an agent understand specific instructions to navigate in the game environment of doom. Others utlized the world of minecraft to help agents complete tasks, with less of a focus on instruction and more on generalized learning rather than interpreting language \cite{Oh2017}, \cite{Tessler2020}. Combining the implementation of \cite{Chaplot2017} with the Minigrid environment \cite{MinigridMiniworld23}, \cite{chevalier2018babyai} we can further explore the challenging problem of robotic instruction with large language models, with the added challenge of addressing multiple agents.
 
 \section{Methods}
-
-The Minigrid environment is available on a public repository in github. Which will form the foundation for the work that we will present in this research. 
-
 \begin{figure*}[!t]
   \centering
   \includegraphics[width=\linewidth]{figs/stateprocessing.png}
   \caption{State processing method as developed by \cite{Chaplot2017}.}
   \label{fig:stateprocess}
 \end{figure*}
+
+The Minigrid environment is available on a public repository in github. Which will form the foundation for the work that we will present in this research. Also foundational to our research is the State Processing Module as shown in Figure~\ref{fig:stateprocess}. Our modified state processing module to use the Minigrid environment and handle multiple agents is shown in Figure~\ref{fig:modeloverview}.
+
+
+
+
 
 \begin{figure*}[!t]
   \centering
