@@ -62,7 +62,7 @@
 \author{Isaac Peterson \\
   \texttt{isaac.peterson@usu.edu} \\\And
   Kaiden McMillen \\
-  \texttt{email@domain} \\\And 
+  \texttt{kaiden.mcmillen@usu.edu} \\\And 
   Braxton Geary \\
   \texttt{braxton.geary@usu.edu} 
   }
@@ -108,24 +108,20 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-  In this project, we explore the application of reinforcement learning (RL) to train an agent capable of navigating a 2D grid environment and identifying geometric shapes with distinct colors. The agent recieves instruction via natural langauge and then the agent moves one space at a time across the grid, using RL techniques to learn an optimal policy for efficiently locating and identifying shapes such as green triangles and red squares. We define the task as a partially observable Markov decision process (POMDP), where the agent's observations are limited to the grid space it occupies. Our approach involves implementing Reinforcement Learning to teach the agent to maximize rewards by minimizing the time and steps required to find and correctly identify a shape. The results demonstrate how reinforcement learning can be applied to shape recognition and navigation tasks, with potential applications in robotics, search-and-rescue missions, and autonomous systems. If time permits, we want to further explore what modifications need to be made in order to command a fleet of agents to accomplish tasks in an optimal manner.
+  In this project, we explore the application of reinforcement learning (RL) to train agents capable of navigating a 2D grid environment and identifying geometric shapes with distinct colors. The agent recieves instruction via natural langauge and then the agents move one space at a time across the grid, using RL techniques to learn an optimal policy for efficiently locating and identifying shapes such as green triangles and red squares. We define the task as a partially observable Markov decision process (POMDP), where the agent's observations are limited to the grid space it occupies. Our approach involves implementing Reinforcement Learning to teach the agents to maximize reward by minimizing the time and steps required to find and correctly identify a shape. The results demonstrate how reinforcement learning can be applied to shape recognition and navigation tasks, with potential applications in robotics, search-and-rescue missions, and autonomous systems. We hope to explore the challenges that come from the multi-agent natural language task completion problema and present viable solutions.
 
 \end{abstract}
 
 \section{Introduction}
 As technologies continue to advance, the integration of robots into every day life is continuing to increase. As humans rely mostly on speech for communication and instruction, it is essential that robots are also developed to understand and decipher language, executing commands effectively and efficiently. 
 
-There are a myriad of challenges that one confronts when attempting to solve this problem. First and foremost, establishing an interface between the spoken command and correct execution of that command. To properly execute the spoken command, the agent needs to have an accurate understanding of its environment, which in the real world can become extremely complex, and the connection between the environment and the spoken language. Initial attempts were made by utilizing more logic based methods to help the robot understand the task that needs to be solved \cite{Liu2016}. To mitigate the challenges that come with real world interpretation, many researchers defaulted to simulations to instruct agents in a more structured world.
+There are a myriad of challenges that one confronts when attempting to solve this problem. First and foremost, establishing an interface between the spoken command and correct execution of that command. To properly execute the spoken command, the agent needs to have an accurate understanding of its environment, which in the real world can become extremely complex, and the connection between the environment and the spoken language. Initial attempts were made by utilizing more logic based methods to help the robot understand the task that needs to be solved \cite{Liu2016}. To mitigate the challenges that come with real world interpretation, many researchers defaulted to simulations to instruct agents in a more structured world \cite{Wang2024}.
 
-
-Video games form a natural challenge for agents, with clear tasks to complete in a very structured world. \cite{Chaplot2017} used the environment in the video game DOOM\texttrademark to train their agent to follow natural language instructions, with other researchers using similiary techniques in Minecraft\texttrademark \cite{Tessler2020}, and even developing their own virtual environments for natural language task completion \cite{Anderson2017} \cite{Wang2024}. 
+Video games form a natural challenge for agents, with clear tasks to complete in a very structured world. \cite{Chaplot2017} used the environment in the video game DOOM\texttrademark ~ to train their agent to follow natural language instructions, with other researchers using similiary techniques in Minecraft\texttrademark ~ \cite{Tessler2020}, and even developing their own virtual environments for natural language task completion \cite{Anderson2017} \cite{Wang2024}. 
 
 Our goal is to use the simplified environment in Minigrid \cite{MinigridMiniworld23} to explore the process of natural langauge task completion, with more research on the multi-agent natural language task completion problem. Where instead of instructing a single agent to complete a task, we instruct a fleet of agents and explore the challenges that come with the increased number of agents along solutions to address these challenges. 
 
 \section{Related Work}
-Most of the work in this project will be based on the work done by \cite{Chaplot2017}. They utilize a combination of large language models and reinforcement learning to help an agent understand specific instructions to navigate in the game environment of doom. Others utilized the world of minecraft to help agents complete tasks, with less of a focus on instruction and more on generalized learning rather than interpreting language \cite{Oh2017}, \cite{Tessler2020}. Combining the implementation of \cite{Chaplot2017} with the Minigrid environment \cite{MinigridMiniworld23}, \cite{chevalier2018babyai} we can further explore the challenging problem of robotic instruction with large language models, with the added challenge of addressing multiple agents.
-
-\section{Methods}
 \begin{figure*}[!t]
   \centering
   \includegraphics[width=\linewidth]{figs/stateprocessing.png}
@@ -133,22 +129,19 @@ Most of the work in this project will be based on the work done by \cite{Chaplot
   \label{fig:stateprocess}
 \end{figure*}
 
-The Minigrid environment is available on a public repository in github. Which will form the foundation for the environment we will use for the work that we will present in this research. Also foundational to our research is the State Processing Module as shown in Figure~\ref{fig:stateprocess}. Our modified state processing module to use the Minigrid environment and handle multiple agents is shown in Figure~\ref{fig:modeloverview}.
+Most of the work in this project will be based on the work done by \cite{Chaplot2017}. They utilize a combination of large language models and reinforcement learning to help an agent understand specific instructions to navigate in the game environment of doom. Others utilized the world of minecraft to help agents complete tasks, with less of a focus on instruction and more on generalized learning rather than interpreting language \cite{Oh2017}, \cite{Tessler2020}. Combining the implementation of \cite{Chaplot2017} with the Minigrid environment \cite{MinigridMiniworld23}, \cite{chevalier2018babyai} we can further explore the challenging problem of robotic instruction with large language models, with the added challenge of addressing multiple agents.
 
-\begin{figure*}[!t]
-  \centering
-  \includegraphics[width=\linewidth]{figs/modeloverviewactual.pdf}
-  \caption{Our approach to solving the multi-agent natural language task-solving problem, showing layers for each agent.}
-  \label{fig:modeloverview}
-\end{figure*}
+\section{Methods}
+
+The Minigrid environment is available on a public repository in github which will form the foundation for the environment we will use for the work that we will present in this research. Also foundational to our research is the State Processing Module as shown in Figure~\ref{fig:stateprocess}. Our modified state processing module to use the Minigrid environment and handle multiple agents is shown in Figure~\ref{fig:modeloverview}.
+
+
 
 Using notation as described in \cite{Chaplot2017} with slight modification to address our problem, we consider multiple agents interacting with an episodic environment $\Sigma$, at the beginning of each episode, each agent recieves the same natural language instruction $L$, which in our case is a description of the task within the Minigrid environment. At each timestep the agent recieves information about the 8 surrounding blocks around the agent in the environment $E_t$. The episode ends when the agents complete their task or some prefixed maximum time length is met. Let $s_t = (E_t, L)$ represent the state at every timestep, the goal is for the agents to learn the optimal policy $\pi(a_t|s_t)$, which maps the observed states in Minigrid to the optimal next action. 
 
 We will also use the vector representation of the instruction along with a single attention layer to convert the instruction $L$ into a machine interpretable vector $x_L = f_a(L)$. We will use a multi-layer perceptron (MLP) to interpret the grid environment, where $e$ is a vector of length 8 x $n$ representing the 8 blocks surrounding the agent, and $n$ being equal to the number of agents, and the result after being passed through the MLP is $x_E = f_{mlp}(e)$. We concatenate these two vectors together to get our output vector $X = [x_L||x_E]$ which we pass onto our reinforcement learning model to update our policy $\pi(a_t|s_t)$.
 
 \section{Expected Experiments}
-
-Since reinforcement learning is an online learning model, we only require the environment as the data to be explored and used to train our model. As mentioned previously we will be using the Minigrid environment to accomplish this task. However, we will have to handcraft some scenarios and reward for the multi-agent portion of this research. Typically the minigrid environment was used for a single agent to complete levels by collecting a key and then exiting to the next level via a green square. 
 
   
 \begin{figure}[!h]
@@ -158,7 +151,19 @@ Since reinforcement learning is an online learning model, we only require the en
   \label{fig:minigrid}
 \end{figure}
 
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\linewidth]{figs/modeloverviewactual.pdf}
+  \caption{Our approach to solving the multi-agent natural language task-solving problem, showing layers for each agent.}
+  \label{fig:modeloverview}
+\end{figure*}
+
+Since reinforcement learning is an online learning model, we only require the environment as the data to be explored and used to train our model. As mentioned previously we will be using the Minigrid environment to accomplish this task. However, we will have to handcraft some scenarios and reward for the multi-agent portion of this research. Typically the minigrid environment was used for a single agent to complete levels by collecting a key and then exiting to the next level via a green square. 
+
+
 The minigrid environment provides many building blocks for reinforcement learning tasks, such as a reward for each action. We will have to update this reward to handle multiple agents. For example, if we had two agents completing the level in the minimum number of steps, the optimal policy would be for one agent to grab the key, while the other agent waits by the exit until the key is retrieved. We will need to customize the environment in Minigrid so that the agents can learn this type of behavior. In order to establish baselines for our model performance, we will determine the optimal timesteps to complete each task and compare that with the actions taken by the agents. We can even incorporate this into their reward at the end of the epsiode so the agents learn to complete each level in a more optimal manner.
+
+
 
 \section{Teamwork}
 
