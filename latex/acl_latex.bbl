@@ -1,68 +1,43 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Liu(2016)}]{Liu2016}
  2016.
-\newblock \href {https://doi.org/10.1115/DETC2016-60063}
-  {\emph{{Natural-Language-Instructed Industrial Task Execution}}}, volume
-  Volume 1B: 36th Computers and Information in Engineering Conference of
-  \emph{International Design Engineering Technical Conferences and Computers
-  and Information in Engineering Conference}.
+\newblock \href {https://doi.org/10.1115/DETC2016-60063} {\emph{{Natural-Language-Instructed Industrial Task Execution}}}, volume Volume 1B: 36th Computers and Information in Engineering Conference of \emph{International Design Engineering Technical Conferences and Computers and Information in Engineering Conference}.
 
-\bibitem[{Anderson et~al.(2017)Anderson, Wu, Teney, Bruce, Johnson,
-  Sünderhauf, Reid, Gould, and van~den Hengel}]{Anderson2017}
-Peter Anderson, Qi~Wu, Damien Teney, Jake Bruce, Mark Johnson, Niko
-  Sünderhauf, Ian Reid, Stephen Gould, and Anton van~den Hengel. 2017.
-\newblock \href {http://arxiv.org/abs/1711.07280} {Vision-and-language
-  navigation: Interpreting visually-grounded navigation instructions in real
-  environments}.
+\bibitem[{Anderson et~al.(2017)Anderson, Wu, Teney, Bruce, Johnson, Sünderhauf, Reid, Gould, and van~den Hengel}]{Anderson2017}
+Peter Anderson, Qi~Wu, Damien Teney, Jake Bruce, Mark Johnson, Niko Sünderhauf, Ian Reid, Stephen Gould, and Anton van~den Hengel. 2017.
+\newblock \href {http://arxiv.org/abs/1711.07280} {Vision-and-language navigation: Interpreting visually-grounded navigation instructions in real environments}.
 
-\bibitem[{Chaplot et~al.(2017)Chaplot, Sathyendra, Pasumarthi, Rajagopal, and
-  Salakhutdinov}]{Chaplot2017}
-Devendra~Singh Chaplot, Kanthashree~Mysore Sathyendra, Rama~Kumar Pasumarthi,
-  Dheeraj Rajagopal, and Ruslan Salakhutdinov. 2017.
-\newblock \href {http://arxiv.org/abs/1706.07230} {Gated-attention
-  architectures for task-oriented language grounding}.
+\bibitem[{Chaplot et~al.(2017)Chaplot, Sathyendra, Pasumarthi, Rajagopal, and Salakhutdinov}]{Chaplot2017}
+Devendra~Singh Chaplot, Kanthashree~Mysore Sathyendra, Rama~Kumar Pasumarthi, Dheeraj Rajagopal, and Ruslan Salakhutdinov. 2017.
+\newblock \href {http://arxiv.org/abs/1706.07230} {Gated-attention architectures for task-oriented language grounding}.
 
-\bibitem[{Chevalier-Boisvert et~al.(2018)Chevalier-Boisvert, Bahdanau, Lahlou,
-  Willems, Saharia, Nguyen, and Bengio}]{chevalier2018babyai}
-Maxime Chevalier-Boisvert, Dzmitry Bahdanau, Salem Lahlou, Lucas Willems,
-  Chitwan Saharia, Thien~Huu Nguyen, and Yoshua Bengio. 2018.
-\newblock Babyai: A platform to study the sample efficiency of grounded
-  language learning.
+\bibitem[{Chevalier-Boisvert et~al.(2018)Chevalier-Boisvert, Bahdanau, Lahlou, Willems, Saharia, Nguyen, and Bengio}]{chevalier2018babyai}
+Maxime Chevalier-Boisvert, Dzmitry Bahdanau, Salem Lahlou, Lucas Willems, Chitwan Saharia, Thien~Huu Nguyen, and Yoshua Bengio. 2018.
+\newblock Babyai: A platform to study the sample efficiency of grounded language learning.
 \newblock \emph{arXiv preprint arXiv:1810.08272}.
 
-\bibitem[{Chevalier{-}Boisvert et~al.(2023)Chevalier{-}Boisvert, Dai, Towers,
-  Perez{-}Vicente, Willems, Lahlou, Pal, Castro, and
-  Terry}]{MinigridMiniworld23}
-Maxime Chevalier{-}Boisvert, Bolun Dai, Mark Towers, Rodrigo Perez{-}Vicente,
-  Lucas Willems, Salem Lahlou, Suman Pal, Pablo~Samuel Castro, and Jordan
-  Terry. 2023.
-\newblock \href {https://github.com/Farama-Foundation/Minigrid} {Minigrid {\&}
-  miniworld: Modular {\&} customizable reinforcement learning environments for
-  goal-oriented tasks}.
-\newblock In \emph{Advances in Neural Information Processing Systems 36, New
-  Orleans, LA, USA}.
+\bibitem[{Chevalier{-}Boisvert et~al.(2023)Chevalier{-}Boisvert, Dai, Towers, Perez{-}Vicente, Willems, Lahlou, Pal, Castro, and Terry}]{MinigridMiniworld23}
+Maxime Chevalier{-}Boisvert, Bolun Dai, Mark Towers, Rodrigo Perez{-}Vicente, Lucas Willems, Salem Lahlou, Suman Pal, Pablo~Samuel Castro, and Jordan Terry. 2023.
+\newblock \href {https://github.com/Farama-Foundation/Minigrid} {Minigrid {\&} miniworld: Modular {\&} customizable reinforcement learning environments for goal-oriented tasks}.
+\newblock In \emph{Advances in Neural Information Processing Systems 36, New Orleans, LA, USA}.
+
+\bibitem[{Mnih et~al.(2016)Mnih, Badia, Mirza, Graves, Lillicrap, Harley, Silver, and Kavukcuoglu}]{Mnih2016}
+V.~Mnih, A.~P. Badia, M.~Mirza, A.~Graves, T.~Lillicrap, T.~Harley, D.~Silver, and K.~Kavukcuoglu. 2016.
+\newblock Asynchronous methods for deep reinforcement learning.
+\newblock In \emph{International Conference on Machine Learning}, pages 1928--1937.
 
 \bibitem[{Oh et~al.(2017)Oh, Singh, Lee, and Kohli}]{Oh2017}
 Junhyuk Oh, Satinder Singh, Honglak Lee, and Pushmeet Kohli. 2017.
-\newblock \href {http://arxiv.org/abs/1706.05064} {Zero-shot task
-  generalization with multi-task deep reinforcement learning}.
+\newblock \href {http://arxiv.org/abs/1706.05064} {Zero-shot task generalization with multi-task deep reinforcement learning}.
 
-\bibitem[{Tessler et~al.()Tessler, Givony, Zahavy, Mankowitz, and
-  Mannor}]{Tessler2020}
+\bibitem[{Tessler et~al.()Tessler, Givony, Zahavy, Mankowitz, and Mannor}]{Tessler2020}
 Chen Tessler, Shahar Givony, Tom Zahavy, Daniel~J Mankowitz, and Shie Mannor.
-\newblock \href {www.aaai.org} {A deep hierarchical approach to lifelong
-  learning in minecraft}.
+\newblock \href {www.aaai.org} {A deep hierarchical approach to lifelong learning in minecraft}.
 
-\bibitem[{Wang et~al.(2024)Wang, Chen, Huang, Ben, Wang, Mi, Huang, Zhao, Chen,
-  Yang, Cao, Yu, Ye, Li, Long, Wang, Wang, Zhao, Tu, Qiao, Lin, and
-  Pang}]{Wang2024}
-Hanqing Wang, Jiahe Chen, Wensi Huang, Qingwei Ben, Tai Wang, Boyu Mi, Tao
-  Huang, Siheng Zhao, Yilun Chen, Sizhe Yang, Peizhou Cao, Wenye Yu, Zichao Ye,
-  Jialun Li, Junfeng Long, Zirui Wang, Huiling Wang, Ying Zhao, Zhongying Tu,
-  Yu~Qiao, Dahua Lin, and Jiangmiao Pang. 2024.
-\newblock \href {http://arxiv.org/abs/2407.10943} {Grutopia: Dream general
-  robots in a city at scale}.
+\bibitem[{Wang et~al.(2024)Wang, Chen, Huang, Ben, Wang, Mi, Huang, Zhao, Chen, Yang, Cao, Yu, Ye, Li, Long, Wang, Wang, Zhao, Tu, Qiao, Lin, and Pang}]{Wang2024}
+Hanqing Wang, Jiahe Chen, Wensi Huang, Qingwei Ben, Tai Wang, Boyu Mi, Tao Huang, Siheng Zhao, Yilun Chen, Sizhe Yang, Peizhou Cao, Wenye Yu, Zichao Ye, Jialun Li, Junfeng Long, Zirui Wang, Huiling Wang, Ying Zhao, Zhongying Tu, Yu~Qiao, Dahua Lin, and Jiangmiao Pang. 2024.
+\newblock \href {http://arxiv.org/abs/2407.10943} {Grutopia: Dream general robots in a city at scale}.
 
 \end{thebibliography}

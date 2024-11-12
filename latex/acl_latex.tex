@@ -64,7 +64,7 @@
   Kaiden McMillen \\
   \texttt{email@domain} \\\And 
   Braxton Geary \\
-  \texttt{email@domain} 
+  \texttt{braxton.geary@usu.edu} 
   }
 
 %\author{
@@ -173,10 +173,13 @@ Isaac Peterson will setup the state processing module. This includes handling th
 
 \subsection{Multi-Agent Reinforcement Learning}
 
-Braxton Geary
-
-
-
+Braxton Geary will develop the Reinforcement Learning (RL) module for our agent using a Deep Q-Network (DQN) integrated with an 
+Asynchronous Advantage Actor-Critic (A3C) algorithm \cite{Mnih2016}. The architecture is comprised of an initial fully connected layer, followed by an LSTM layer, 
+and a concluding fully connected layer, allowing it to process inputs from the State Processing Module. The module outputs a tuple with a scalar 
+critic value and an array of action probabilities. Where the Actor and Critic share the same neural network, the actor's output undergoes a softmax operation 
+to yield action probabilities, \( a_t \). Given that the Minigrid environment limits certain actions, we will apply a negative infinity mask to the logits for 
+these unavailable actions, ensuring they remain unselected by the agent. To further enhance stability, we will also incorporate a Proximal Policy Optimization (PPO) 
+approach, which will strengthen the model's reliability and effectiveness across diverse scenarios.
 
 % \bibliographystyle{plain}
 
