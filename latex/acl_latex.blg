@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2024)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: acl_latex.aux
 The style file: acl_natbib.bst
@@ -15,45 +15,45 @@ Warning--empty journal in Chaplot2017
 Warning--empty journal in Oh2017
 Warning--empty year in Tessler2020
 Warning--empty journal in Wang2024
-You've used 8 entries,
+You've used 9 entries,
             3734 wiz_defined-function locations,
-            784 strings with 8296 characters,
-and the built_in function-call counts, 6857 in all, are:
-= -- 454
-> -- 529
-< -- 1
-+ -- 193
-- -- 184
-* -- 574
-:= -- 1114
-add.period$ -- 25
-call.type$ -- 8
-change.case$ -- 102
-chr.to.int$ -- 9
-cite$ -- 16
-duplicate$ -- 375
-empty$ -- 400
-format.name$ -- 204
-if$ -- 1369
+            790 strings with 8540 characters,
+and the built_in function-call counts, 7993 in all, are:
+= -- 547
+> -- 598
+< -- 2
++ -- 218
+- -- 208
+* -- 657
+:= -- 1275
+add.period$ -- 29
+call.type$ -- 9
+change.case$ -- 117
+chr.to.int$ -- 10
+cite$ -- 17
+duplicate$ -- 443
+empty$ -- 471
+format.name$ -- 231
+if$ -- 1611
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 101
-newline$ -- 38
-num.names$ -- 28
-pop$ -- 256
+missing$ -- 117
+newline$ -- 43
+num.names$ -- 32
+pop$ -- 294
 preamble$ -- 1
-purify$ -- 93
+purify$ -- 105
 quote$ -- 0
-skip$ -- 289
+skip$ -- 341
 stack$ -- 0
-substring$ -- 93
-swap$ -- 212
-text.length$ -- 2
+substring$ -- 144
+swap$ -- 255
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 81
 warning$ -- 6
-while$ -- 21
+while$ -- 27
 width$ -- 0
-write$ -- 86
+write$ -- 99
 (There were 6 warnings)

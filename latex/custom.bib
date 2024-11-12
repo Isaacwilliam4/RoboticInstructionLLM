@@ -1,94 +1,100 @@
-@misc{VLA,
-   abstract = {Figure 1: Mobility VLA architecture. The multimodal user instruction and a demonstration tour video of the environment are used by a long-context VLM (high-level policy) to identify the goal frame in the video. The low-level policy then uses the goal frame and an offline generated topological map (from the tour video using structure-from-motion) to compute a robot action at every timestep. Abstract: 1},
-   author = {Anonymous Author},
-   title = {Mobility VLA: Multimodal Instruction Navigation with Long-Context VLMs and Topological Graphs Multimodal User Instruction Where should I return this? Language Instruction Image Instruction Demonstration Tour Video Navigation goal Structure From Motion (offline) Topological Graph Waypoint Action High Level Goal Finding with Long-Context VLM Observation Low Level Goal Reaching Localization Path finding Mobility Vision-Language-Action (VLA) Goal},
+@article{Anderson2017,
+  abstract = {A robot that can carry out a natural-language instruction has been a dream since before the Jetsons cartoon series imagined a life of leisure mediated by a fleet of attentive robot helpers. It is a dream that remains stubbornly distant. However, recent advances in vision and language methods have made incredible progress in closely related areas. This is significant because a robot interpreting a natural-language navigation instruction on the basis of what it sees is carrying out a vision and language process that is similar to Visual Question Answering. Both tasks can be interpreted as visually grounded sequence-to-sequence translation problems, and many of the same methods are applicable. To enable and encourage the application of vision and language methods to the problem of interpreting visually-grounded navigation instructions, we present the Matterport3D Simulator -- a large-scale reinforcement learning environment based on real imagery. Using this simulator, which can in future support a range of embodied vision and language tasks, we provide the first benchmark dataset for visually-grounded natural language navigation in real buildings -- the Room-to-Room (R2R) dataset.},
+  author   = {Peter Anderson and Qi Wu and Damien Teney and Jake Bruce and Mark Johnson and Niko Sünderhauf and Ian Reid and Stephen Gould and Anton van den Hengel},
+  month    = {11},
+  title    = {Vision-and-Language Navigation: Interpreting visually-grounded navigation instructions in real environments},
+  url      = {http://arxiv.org/abs/1711.07280},
+  year     = {2017}
 }
 @article{Chaplot2017,
-   abstract = {To perform tasks specified by natural language instructions, autonomous agents need to extract semantically meaningful representations of language and map it to visual elements and actions in the environment. This problem is called task-oriented language grounding. We propose an end-to-end trainable neural architecture for task-oriented language grounding in 3D environments which assumes no prior linguistic or perceptual knowledge and requires only raw pixels from the environment and the natural language instruction as input. The proposed model combines the image and text representations using a Gated-Attention mechanism and learns a policy to execute the natural language instruction using standard reinforcement and imitation learning methods. We show the effectiveness of the proposed model on unseen instructions as well as unseen maps, both quantitatively and qualitatively. We also introduce a novel environment based on a 3D game engine to simulate the challenges of task-oriented language grounding over a rich set of instructions and environment states.},
-   author = {Devendra Singh Chaplot and Kanthashree Mysore Sathyendra and Rama Kumar Pasumarthi and Dheeraj Rajagopal and Ruslan Salakhutdinov},
-   month = {6},
-   title = {Gated-Attention Architectures for Task-Oriented Language Grounding},
-   url = {http://arxiv.org/abs/1706.07230},
-   year = {2017},
-}
-@article{Anderson2017,
-   abstract = {A robot that can carry out a natural-language instruction has been a dream since before the Jetsons cartoon series imagined a life of leisure mediated by a fleet of attentive robot helpers. It is a dream that remains stubbornly distant. However, recent advances in vision and language methods have made incredible progress in closely related areas. This is significant because a robot interpreting a natural-language navigation instruction on the basis of what it sees is carrying out a vision and language process that is similar to Visual Question Answering. Both tasks can be interpreted as visually grounded sequence-to-sequence translation problems, and many of the same methods are applicable. To enable and encourage the application of vision and language methods to the problem of interpreting visually-grounded navigation instructions, we present the Matterport3D Simulator -- a large-scale reinforcement learning environment based on real imagery. Using this simulator, which can in future support a range of embodied vision and language tasks, we provide the first benchmark dataset for visually-grounded natural language navigation in real buildings -- the Room-to-Room (R2R) dataset.},
-   author = {Peter Anderson and Qi Wu and Damien Teney and Jake Bruce and Mark Johnson and Niko Sünderhauf and Ian Reid and Stephen Gould and Anton van den Hengel},
-   month = {11},
-   title = {Vision-and-Language Navigation: Interpreting visually-grounded navigation instructions in real environments},
-   url = {http://arxiv.org/abs/1711.07280},
-   year = {2017},
-}
-@article{Wang2024,
-   abstract = {Recent works have been exploring the scaling laws in the field of Embodied AI. Given the prohibitive costs of collecting real-world data, we believe the Simulation-to-Real (Sim2Real) paradigm is a crucial step for scaling the learning of embodied models. This paper introduces project GRUtopia, the first simulated interactive 3D society designed for various robots. It features several advancements: (a) The scene dataset, GRScenes, includes 100k interactive, finely annotated scenes, which can be freely combined into city-scale environments. In contrast to previous works mainly focusing on home, GRScenes covers 89 diverse scene categories, bridging the gap of service-oriented environments where general robots would be initially deployed. (b) GRResidents, a Large Language Model (LLM) driven Non-Player Character (NPC) system that is responsible for social interaction, task generation, and task assignment, thus simulating social scenarios for embodied AI applications. (c) The benchmark, GRBench, supports various robots but focuses on legged robots as primary agents and poses moderately challenging tasks involving Object Loco-Navigation, Social Loco-Navigation, and Loco-Manipulation. We hope that this work can alleviate the scarcity of high-quality data in this field and provide a more comprehensive assessment of Embodied AI research. The project is available at https://github.com/OpenRobotLab/GRUtopia.},
-   author = {Hanqing Wang and Jiahe Chen and Wensi Huang and Qingwei Ben and Tai Wang and Boyu Mi and Tao Huang and Siheng Zhao and Yilun Chen and Sizhe Yang and Peizhou Cao and Wenye Yu and Zichao Ye and Jialun Li and Junfeng Long and Zirui Wang and Huiling Wang and Ying Zhao and Zhongying Tu and Yu Qiao and Dahua Lin and Jiangmiao Pang},
-   month = {7},
-   title = {GRUtopia: Dream General Robots in a City at Scale},
-   url = {http://arxiv.org/abs/2407.10943},
-   year = {2024},
-}
-@inproceedings{MinigridMiniworld23,
-  author       = {Maxime Chevalier{-}Boisvert and Bolun Dai and Mark Towers and Rodrigo Perez{-}Vicente and Lucas Willems and Salem Lahlou and Suman Pal and Pablo Samuel Castro and Jordan Terry},
-  title        = {Minigrid {\&} Miniworld: Modular {\&} Customizable Reinforcement Learning Environments for Goal-Oriented Tasks},
-  booktitle    = {Advances in Neural Information Processing Systems 36, New Orleans, LA, USA},
-  month        = {December},
-  year         = {2023},
-  url = {https://github.com/Farama-Foundation/Minigrid}
+  abstract = {To perform tasks specified by natural language instructions, autonomous agents need to extract semantically meaningful representations of language and map it to visual elements and actions in the environment. This problem is called task-oriented language grounding. We propose an end-to-end trainable neural architecture for task-oriented language grounding in 3D environments which assumes no prior linguistic or perceptual knowledge and requires only raw pixels from the environment and the natural language instruction as input. The proposed model combines the image and text representations using a Gated-Attention mechanism and learns a policy to execute the natural language instruction using standard reinforcement and imitation learning methods. We show the effectiveness of the proposed model on unseen instructions as well as unseen maps, both quantitatively and qualitatively. We also introduce a novel environment based on a 3D game engine to simulate the challenges of task-oriented language grounding over a rich set of instructions and environment states.},
+  author   = {Devendra Singh Chaplot and Kanthashree Mysore Sathyendra and Rama Kumar Pasumarthi and Dheeraj Rajagopal and Ruslan Salakhutdinov},
+  month    = {6},
+  title    = {Gated-Attention Architectures for Task-Oriented Language Grounding},
+  url      = {http://arxiv.org/abs/1706.07230},
+  year     = {2017}
 }
 @article{chevalier2018babyai,
-  title={Babyai: A platform to study the sample efficiency of grounded language learning},
-  author={Chevalier-Boisvert, Maxime and Bahdanau, Dzmitry and Lahlou, Salem and Willems, Lucas and Saharia, Chitwan and Nguyen, Thien Huu and Bengio, Yoshua},
-  journal={arXiv preprint arXiv:1810.08272},
-  year={2018}
+  title   = {Babyai: A platform to study the sample efficiency of grounded language learning},
+  author  = {Chevalier-Boisvert, Maxime and Bahdanau, Dzmitry and Lahlou, Salem and Willems, Lucas and Saharia, Chitwan and Nguyen, Thien Huu and Bengio, Yoshua},
+  journal = {arXiv preprint arXiv:1810.08272},
+  year    = {2018}
+}
+@proceedings{Liu2016,
+  author   = {Liu, Rui and Webb, Jeremy and Zhang, Xiaoli},
+  title    = {{Natural-Language-Instructed Industrial Task Execution}},
+  volume   = {Volume 1B: 36th Computers and Information in Engineering Conference},
+  series   = {International Design Engineering Technical Conferences and Computers and Information in Engineering Conference},
+  pages    = {V01BT02A043},
+  year     = {2016},
+  month    = {08},
+  abstract = {{To effectively cooperate with a human, advanced manufacturing machines are expected to execute the industrial tasks according to human natural language (NL) instructions. However, NL instructions are not explicit enough to be understood and are not complete enough to be executed, leading to incorrected executions or even execution failure. To address these problems for better execution performance, we developed a Natural-Language-Instructed Task Execution (NL-Exe) method. In NL-Exe, semantic analysis is adopted to extract task-related knowledge, based on what human NL instructions are accurately understood. In addition, logic modeling is conducted to search the missing execution-related specifications, with which incomplete human instructions are repaired. By orally instructing a humanoid robot Baxter to perform industrial tasks “drill a hole” and “clean a spot”, we proved that NL-Exe could enable an advanced manufacturing machine to accurately understand human instructions, improving machine’s performance in industrial task execution.}},
+  doi      = {10.1115/DETC2016-60063},
+  url      = {https://doi.org/10.1115/DETC2016-60063},
+  eprint   = {https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings-pdf/IDETC-CIE2016/50084/V01BT02A043/2470842/v01bt02a043-detc2016-60063.pdf}
+}
+@inproceedings{MinigridMiniworld23,
+  author    = {Maxime Chevalier{-}Boisvert and Bolun Dai and Mark Towers and Rodrigo Perez{-}Vicente and Lucas Willems and Salem Lahlou and Suman Pal and Pablo Samuel Castro and Jordan Terry},
+  title     = {Minigrid {\&} Miniworld: Modular {\&} Customizable Reinforcement Learning Environments for Goal-Oriented Tasks},
+  booktitle = {Advances in Neural Information Processing Systems 36, New Orleans, LA, USA},
+  month     = {December},
+  year      = {2023},
+  url       = {https://github.com/Farama-Foundation/Minigrid}
+}
+@conference{Mnih2016,
+  author    = {Mnih, V. and Badia, A. P. and Mirza, M. and Graves, A. and Lillicrap, T. and Harley, T. and Silver, D. and Kavukcuoglu, K.},
+  title     = {Asynchronous methods for deep reinforcement learning},
+  year      = {2016},
+  booktitle = {International Conference on Machine Learning},
+  pages     = {1928--1937}
 }
 
 @article{Oh2017,
-   abstract = {As a step towards developing zero-shot task generalization capabilities in reinforcement learning (RL), we introduce a new RL problem where the agent should learn to execute sequences of instructions after learning useful skills that solve subtasks. In this problem, we consider two types of generalizations: to previously unseen instructions and to longer sequences of instructions. For generalization over unseen instructions, we propose a new objective which encourages learning correspondences between similar subtasks by making analogies. For generalization over sequential instructions, we present a hierarchical architecture where a meta controller learns to use the acquired skills for executing the instructions. To deal with delayed reward, we propose a new neural architecture in the meta controller that learns when to update the subtask, which makes learning more efficient. Experimental results on a stochastic 3D domain show that the proposed ideas are crucial for generalization to longer instructions as well as unseen instructions.},
-   author = {Junhyuk Oh and Satinder Singh and Honglak Lee and Pushmeet Kohli},
-   month = {6},
-   title = {Zero-Shot Task Generalization with Multi-Task Deep Reinforcement Learning},
-   url = {http://arxiv.org/abs/1706.05064},
-   year = {2017},
+  abstract = {As a step towards developing zero-shot task generalization capabilities in reinforcement learning (RL), we introduce a new RL problem where the agent should learn to execute sequences of instructions after learning useful skills that solve subtasks. In this problem, we consider two types of generalizations: to previously unseen instructions and to longer sequences of instructions. For generalization over unseen instructions, we propose a new objective which encourages learning correspondences between similar subtasks by making analogies. For generalization over sequential instructions, we present a hierarchical architecture where a meta controller learns to use the acquired skills for executing the instructions. To deal with delayed reward, we propose a new neural architecture in the meta controller that learns when to update the subtask, which makes learning more efficient. Experimental results on a stochastic 3D domain show that the proposed ideas are crucial for generalization to longer instructions as well as unseen instructions.},
+  author   = {Junhyuk Oh and Satinder Singh and Honglak Lee and Pushmeet Kohli},
+  month    = {6},
+  title    = {Zero-Shot Task Generalization with Multi-Task Deep Reinforcement Learning},
+  url      = {http://arxiv.org/abs/1706.05064},
+  year     = {2017}
 }
-@misc{Tessler2020,
-   abstract = {We propose a lifelong learning system that has the ability to reuse and transfer knowledge from one task to another while efficiently retaining the previously learned knowledge-base. Knowledge is transferred by learning reusable skills to solve tasks in Minecraft, a popular video game which is an unsolved and high-dimensional lifelong learning problem. These reusable skills, which we refer to as Deep Skill Networks , are then incorporated into our novel Hierarchical Deep Reinforcement Learning Network (H-DRLN) architecture using two techniques: (1) a deep skill array and (2) skill distillation , our novel variation of policy distillation (Rusu et al. 2015) for learning skills. Skill distillation enables the H-DRLN to efficiently retain knowledge and therefore scale in lifelong learning, by accumulating knowledge and encapsulating multiple reusable skills into a single distilled network. The H-DRLN exhibits superior performance and lower learning sample complexity compared to the regular Deep Q Network (Mnih et al. 2015) in sub-domains of Minecraft.},
-   author = {Chen Tessler and Shahar Givony and Tom Zahavy and Daniel J Mankowitz and Shie Mannor},
-   keywords = {Machine Learning Applications},
-   title = {A Deep Hierarchical Approach to Lifelong Learning in Minecraft},
-   url = {www.aaai.org},
+@conference{Singh202311523,
+  author            = {Singh, Ishika and Blukis, Valts and Mousavian, Arsalan and Goyal, Ankit and Xu, Danfei and Tremblay, Jonathan and Fox, Dieter and Thomason, Jesse and Garg, Animesh},
+  title             = {ProgPrompt: Generating Situated Robot Task Plans using Large Language Models},
+  year              = {2023},
+  journal           = {Proceedings - IEEE International Conference on Robotics and Automation},
+  volume            = {2023-May},
+  pages             = {11523 – 11530},
+  doi               = {10.1109/ICRA48891.2023.10161317},
+  url               = {https://www.scopus.com/inward/record.uri?eid=2-s2.0-85153467228&doi=10.1109%2fICRA48891.2023.10161317&partnerID=40&md5=01fe2a558b602dec6f0a70b2eb72ea1d},
+  type              = {Conference paper},
+  publication_stage = {Final},
+  source            = {Scopus},
+  note              = {Cited by: 152; All Open Access, Green Open Access}
 }
 
 Scopus
 EXPORT DATE: 06 November 2024
 
-@CONFERENCE{Singh202311523,
-	author = {Singh, Ishika and Blukis, Valts and Mousavian, Arsalan and Goyal, Ankit and Xu, Danfei and Tremblay, Jonathan and Fox, Dieter and Thomason, Jesse and Garg, Animesh},
-	title = {ProgPrompt: Generating Situated Robot Task Plans using Large Language Models},
-	year = {2023},
-	journal = {Proceedings - IEEE International Conference on Robotics and Automation},
-	volume = {2023-May},
-	pages = {11523 – 11530},
-	doi = {10.1109/ICRA48891.2023.10161317},
-	url = {https://www.scopus.com/inward/record.uri?eid=2-s2.0-85153467228&doi=10.1109%2fICRA48891.2023.10161317&partnerID=40&md5=01fe2a558b602dec6f0a70b2eb72ea1d},
-	type = {Conference paper},
-	publication_stage = {Final},
-	source = {Scopus},
-	note = {Cited by: 152; All Open Access, Green Open Access}
+@misc{Tessler2020,
+  abstract = {We propose a lifelong learning system that has the ability to reuse and transfer knowledge from one task to another while efficiently retaining the previously learned knowledge-base. Knowledge is transferred by learning reusable skills to solve tasks in Minecraft, a popular video game which is an unsolved and high-dimensional lifelong learning problem. These reusable skills, which we refer to as Deep Skill Networks , are then incorporated into our novel Hierarchical Deep Reinforcement Learning Network (H-DRLN) architecture using two techniques: (1) a deep skill array and (2) skill distillation , our novel variation of policy distillation (Rusu et al. 2015) for learning skills. Skill distillation enables the H-DRLN to efficiently retain knowledge and therefore scale in lifelong learning, by accumulating knowledge and encapsulating multiple reusable skills into a single distilled network. The H-DRLN exhibits superior performance and lower learning sample complexity compared to the regular Deep Q Network (Mnih et al. 2015) in sub-domains of Minecraft.},
+  author   = {Chen Tessler and Shahar Givony and Tom Zahavy and Daniel J Mankowitz and Shie Mannor},
+  keywords = {Machine Learning Applications},
+  title    = {A Deep Hierarchical Approach to Lifelong Learning in Minecraft},
+  url      = {www.aaai.org}
 }
 
 
-@proceedings{Liu2016,
-    author = {Liu, Rui and Webb, Jeremy and Zhang, Xiaoli},
-    title = "{Natural-Language-Instructed Industrial Task Execution}",
-    volume = {Volume 1B: 36th Computers and Information in Engineering Conference},
-    series = {International Design Engineering Technical Conferences and Computers and Information in Engineering Conference},
-    pages = {V01BT02A043},
-    year = {2016},
-    month = {08},
-    abstract = "{To effectively cooperate with a human, advanced manufacturing machines are expected to execute the industrial tasks according to human natural language (NL) instructions. However, NL instructions are not explicit enough to be understood and are not complete enough to be executed, leading to incorrected executions or even execution failure. To address these problems for better execution performance, we developed a Natural-Language-Instructed Task Execution (NL-Exe) method. In NL-Exe, semantic analysis is adopted to extract task-related knowledge, based on what human NL instructions are accurately understood. In addition, logic modeling is conducted to search the missing execution-related specifications, with which incomplete human instructions are repaired. By orally instructing a humanoid robot Baxter to perform industrial tasks “drill a hole” and “clean a spot”, we proved that NL-Exe could enable an advanced manufacturing machine to accurately understand human instructions, improving machine’s performance in industrial task execution.}",
-    doi = {10.1115/DETC2016-60063},
-    url = {https://doi.org/10.1115/DETC2016-60063},
-    eprint = {https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings-pdf/IDETC-CIE2016/50084/V01BT02A043/2470842/v01bt02a043-detc2016-60063.pdf},
+@misc{VLA,
+  abstract = {Figure 1: Mobility VLA architecture. The multimodal user instruction and a demonstration tour video of the environment are used by a long-context VLM (high-level policy) to identify the goal frame in the video. The low-level policy then uses the goal frame and an offline generated topological map (from the tour video using structure-from-motion) to compute a robot action at every timestep. Abstract: 1},
+  author   = {Anonymous Author},
+  title    = {Mobility VLA: Multimodal Instruction Navigation with Long-Context VLMs and Topological Graphs Multimodal User Instruction Where should I return this? Language Instruction Image Instruction Demonstration Tour Video Navigation goal Structure From Motion (offline) Topological Graph Waypoint Action High Level Goal Finding with Long-Context VLM Observation Low Level Goal Reaching Localization Path finding Mobility Vision-Language-Action (VLA) Goal}
 }
 
-
+@article{Wang2024,
+  abstract = {Recent works have been exploring the scaling laws in the field of Embodied AI. Given the prohibitive costs of collecting real-world data, we believe the Simulation-to-Real (Sim2Real) paradigm is a crucial step for scaling the learning of embodied models. This paper introduces project GRUtopia, the first simulated interactive 3D society designed for various robots. It features several advancements: (a) The scene dataset, GRScenes, includes 100k interactive, finely annotated scenes, which can be freely combined into city-scale environments. In contrast to previous works mainly focusing on home, GRScenes covers 89 diverse scene categories, bridging the gap of service-oriented environments where general robots would be initially deployed. (b) GRResidents, a Large Language Model (LLM) driven Non-Player Character (NPC) system that is responsible for social interaction, task generation, and task assignment, thus simulating social scenarios for embodied AI applications. (c) The benchmark, GRBench, supports various robots but focuses on legged robots as primary agents and poses moderately challenging tasks involving Object Loco-Navigation, Social Loco-Navigation, and Loco-Manipulation. We hope that this work can alleviate the scarcity of high-quality data in this field and provide a more comprehensive assessment of Embodied AI research. The project is available at https://github.com/OpenRobotLab/GRUtopia.},
+  author   = {Hanqing Wang and Jiahe Chen and Wensi Huang and Qingwei Ben and Tai Wang and Boyu Mi and Tao Huang and Siheng Zhao and Yilun Chen and Sizhe Yang and Peizhou Cao and Wenye Yu and Zichao Ye and Jialun Li and Junfeng Long and Zirui Wang and Huiling Wang and Ying Zhao and Zhongying Tu and Yu Qiao and Dahua Lin and Jiangmiao Pang},
+  month    = {7},
+  title    = {GRUtopia: Dream General Robots in a City at Scale},
+  url      = {http://arxiv.org/abs/2407.10943},
+  year     = {2024}
+}

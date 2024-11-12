@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.7)  11 NOV 2024 14:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.7)  11 NOV 2024 18:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -270,24 +270,24 @@ File: l3backend-pdftex.def 2024-04-11 L3 backend support: PDF output (pdfTeX)
 ) (./acl_latex.aux)
 \openout1 = `acl_latex.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count286
@@ -344,24 +344,24 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 114.
+Package hyperref Info: Link coloring ON on input line 108.
 (./acl_latex.out) (./acl_latex.out)
 \@outlinefile=\write3
 \openout3 = `acl_latex.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 114.
-Package microtype Info: Applying patch `item' on input line 114.
-Package microtype Info: Applying patch `toc' on input line 114.
-Package microtype Info: Applying patch `eqnum' on input line 114.
-Package microtype Info: Applying patch `footnote' on input line 114.
-Package microtype Info: Applying patch `verbatim' on input line 114.
+LaTeX Info: Redefining \microtypecontext on input line 108.
+Package microtype Info: Applying patch `item' on input line 108.
+Package microtype Info: Applying patch `toc' on input line 108.
+Package microtype Info: Applying patch `eqnum' on input line 108.
+Package microtype Info: Applying patch `footnote' on input line 108.
+Package microtype Info: Applying patch `verbatim' on input line 108.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 114.
+LaTeX Info: Redefining \showhyphens on input line 108.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -373,26 +373,26 @@ Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbat
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 115.
+(Font)              <12> on input line 109.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 115.
+(Font)              <8> on input line 109.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 115.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 115.
+(Font)              <6> on input line 109.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 109.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 115.
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 109.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 12.0pt on input line 115.
+(Font)              scaled to size 12.0pt on input line 109.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 127.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 121.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}
@@ -403,7 +403,7 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 <figs/stateprocessing.png, id=74, 1954.30125pt x 438.13687pt>
 File: figs/stateprocessing.png Graphic file (type png)
 <use figs/stateprocessing.png>
-Package pdftex.def Info: figs/stateprocessing.png  used on input line 137.
+Package pdftex.def Info: figs/stateprocessing.png  used on input line 131.
 (pdftex.def)             Requested size: 455.24411pt x 102.05963pt.
 
 
@@ -411,19 +411,22 @@ pdfTeX warning: pdflatex (file ./figs/modeloverviewactual.pdf): PDF inclusion: f
 <figs/modeloverviewactual.pdf, id=82, 862.72313pt x 325.6165pt>
 File: figs/modeloverviewactual.pdf Graphic file (type pdf)
 <use figs/modeloverviewactual.pdf>
-Package pdftex.def Info: figs/modeloverviewactual.pdf  used on input line 146.
+Package pdftex.def Info: figs/modeloverviewactual.pdf  used on input line 140.
 (pdftex.def)             Requested size: 455.24411pt x 171.8207pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 151.
+(Font)              <10.95> on input line 145.
 <figs/minigridenv.png, id=85, 158.84344pt x 152.06813pt>
 File: figs/minigridenv.png Graphic file (type png)
 <use figs/minigridenv.png>
-Package pdftex.def Info: figs/minigridenv.png  used on input line 162.
+Package pdftex.def Info: figs/minigridenv.png  used on input line 156.
 (pdftex.def)             Requested size: 219.08614pt x 209.7591pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./acl_latex.bbl [2] [3 <./figs/stateprocessing.png> <./figs/modeloverviewactual.pdf> <./figs/minigridenv.png>]) [4
+[2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ (./acl_latex.bbl [3 <./figs/stateprocessing.png> <./figs/modeloverviewactual.pdf> <./figs/minigridenv.png>]) [4
 
 ] (./acl_latex.aux)
  ***********
@@ -434,18 +437,18 @@ Package rerunfilecheck Info: File `acl_latex.out' has not changed.
 (rerunfilecheck)             Checksum: C54D699417FDA42A6BE21161C2DDBEA7;1072.
  ) 
 Here is how much of TeX's memory you used:
- 13925 strings out of 474050
- 224373 string characters out of 5742264
- 1947751 words of memory out of 5000000
- 35961 multiletter control sequences out of 15000+600000
- 591962 words of font info for 188 fonts, out of 8000000 for 9000
+ 13936 strings out of 474050
+ 224494 string characters out of 5742264
+ 1946751 words of memory out of 5000000
+ 35964 multiletter control sequences out of 15000+600000
+ 591367 words of font info for 193 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,10n,93p,1238b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,10n,93p,1238b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on acl_latex.pdf (4 pages, 651525 bytes).
+Output written on acl_latex.pdf (4 pages, 652644 bytes).
 PDF statistics:
- 233 PDF objects out of 1000 (max. 8388607)
- 198 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 35408 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 237 PDF objects out of 1000 (max. 8388607)
+ 201 compressed objects within 3 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 33360 words of extra memory for PDF output out of 35830 (max. 10000000)
 
