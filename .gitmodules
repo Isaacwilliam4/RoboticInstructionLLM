@@ -1,3 +1,0 @@
-[submodule "DeepRL-Grounding"]
-    path = DeepRL-Grounding
-    url = git@github.com:devendrachaplot/DeepRL-Grounding.git
