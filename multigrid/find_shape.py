@@ -47,7 +47,7 @@ class FindShapeEnv(MultiGridEnv):
 
         # Place balls and boxes randomly
         for _ in range(self.num_balls):
-            index = np.random.randint(len(self.colors))  # Choose a random index
+            index = np.random.random_integers(len(self.colors))  # Choose a random index
             self.place_obj(Ball(self.world, index=index))
         for _ in range(self.num_boxes):
             color = np.random.choice(self.colors)
