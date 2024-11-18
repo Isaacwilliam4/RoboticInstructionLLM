@@ -3,18 +3,21 @@ import numpy as np
 from gym_multigrid.multigrid import *
 from gym import spaces
 
+COLORS = ['red', 'blue', 'green', 'yellow']
+SHAPES = ['ball', 'box']
+
 class FindShapeEnv(MultiGridEnv):
-    def __init__(self, size=20, num_balls=10, num_boxes=10, view_size=7):
+    def __init__(self, size=20, num_balls=10, num_boxes=10, view_size=7, num_agents=3):
+        self.num_agents = num_agents
         self.num_balls = num_balls
         self.num_boxes = num_boxes
-        self.colors = ['red', 'blue', 'green', 'yellow']
-        self.agent_tasks = [("ball", "red"), ("box", "blue")]  # Tasks for each agent
+        self.size = size
 
         # Initialize the world
         self.world = World()
 
         # Create agents
-        agents = [Agent(self.world, i + 1, view_size=view_size) for i in range(len(self.agent_tasks))]
+        agents = [Agent(self.world, i + 1, view_size=view_size) for i in range(self.num_agents)]
 
         # Explicitly set agent_view_size before calling the parent class
         self.agent_view_size = view_size
@@ -32,8 +35,8 @@ class FindShapeEnv(MultiGridEnv):
         )
 
         # Initialize variables to track the agents' progress
-        self.target_found = [False] * len(self.agent_tasks)  # Track if agent has found their target
-        self.first_found = [False] * len(self.agent_tasks)  # Track if agent has found it first
+        self.target_found = [False] * self.num_agents  # Track if agent has found their target
+        self.first_found = [False] * self.num_agents  # Track if agent has found it first
 
     def _gen_grid(self, width, height):
         # Create grid
@@ -47,10 +50,10 @@ class FindShapeEnv(MultiGridEnv):
 
         # Place balls and boxes randomly
         for _ in range(self.num_balls):
-            index = np.random.random_integers(len(self.colors))  # Choose a random index
+            index = np.random.random_integers(len(COLORS))  # Choose a random index
             self.place_obj(Ball(self.world, index=index))
         for _ in range(self.num_boxes):
-            color = np.random.choice(self.colors)
+            color = np.random.choice(COLORS)
             self.place_obj(Box(self.world, color=color))
 
         # Place agents randomly
@@ -73,13 +76,15 @@ class FindShapeEnv(MultiGridEnv):
 
     def reset(self):
         # Reset the environment and the progress tracking variables
-        self.target_found = [False] * len(self.agent_tasks)
-        self.first_found = [False] * len(self.agent_tasks)
+        self._gen_grid(self.size, self.size)
+        self.target_found = [False] * self.num_agents
+        self.first_found = [False] * self.num_agents
         obs = super().reset()
         obs = self.process_observation(obs)
         return obs.reshape(self.agent_view_size, self.agent_view_size, -1)  # Reshape to match observation space
 
-    def step(self, actions):
+    def step(self, actions, task_type):
+        shape, color = task_type
         # Ensure actions is an iterable (list or array)
         if isinstance(actions, np.int64):
             actions = [actions]  # Convert single action to a list
@@ -88,9 +93,6 @@ class FindShapeEnv(MultiGridEnv):
 
         # Reward logic for the agents
         for idx, agent in enumerate(self.agents):
-            # Get agent's task (e.g., "ball", "red" or "box", "blue")
-            task_type, task_color = self.agent_tasks[idx]
-
             # Check if the agent found the object (e.g., red ball or blue box)
             found_object = False
             agent_pos = agent.pos  # Get agent's position
@@ -121,17 +123,14 @@ class FindShapeEnv(MultiGridEnv):
                     rewards[idx] += 5  # Additional reward for being the first to find it
 
         obs = self.process_observation(obs)
-        return obs.reshape(self.agent_view_size, self.agent_view_size, -1), rewards, done, info  # Reshape to match observation space
+        return obs.reshape(-1), rewards, done, info  # Reshape to match observation space
 
 
     def render(self, mode="human"):
         """
         Render the grid to the console or use Matplotlib.
         """
-        if mode == "human":
-            self.grid.render(self.agents)
-        else:
-            super().render(mode)
+        super().render(mode)
 
 
 class FindShape20x20Env(FindShapeEnv):

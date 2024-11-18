@@ -59,12 +59,6 @@ def visualize_env(env, model):
 
         env.render()
 
-
-
-
-
-
-
 # Main training function
 def main():
     # Create and wrap the environment
