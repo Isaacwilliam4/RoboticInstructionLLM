@@ -5,7 +5,7 @@ from stable_baselines3.common.env_util import make_vec_env
 import numpy as np
 
 # Load the custom environment
-from find_shape import FindShape20x20Env
+from gym_multigrid.envs.find_shape import FindShape20x20Env
 
 
 def visualize_env(env, model):
