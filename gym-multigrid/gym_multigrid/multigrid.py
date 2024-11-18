@@ -781,7 +781,7 @@ class Grid:
     #     width, height, channels = array.shape
     #     assert channels == 3
     #
-    #     vis_mask = np.ones(shape=(width, height), dtype=np.bool)
+    #     vis_mask = np.ones(shape=(width, height), dtype=bool)
     #
     #     grid = Grid(width, height)
     #     for i in range(width):
@@ -794,7 +794,7 @@ class Grid:
     #     return grid, vis_mask
 
     def process_vis(grid, agent_pos):
-        mask = np.zeros(shape=(grid.width, grid.height), dtype=np.bool)
+        mask = np.zeros(shape=(grid.width, grid.height), dtype=bool)
 
         mask[agent_pos[0], agent_pos[1]] = True
 
@@ -1078,7 +1078,7 @@ class MultiGridEnv(gym.Env):
         Generate random integer in [low,high[
         """
 
-        return self.np_random.randint(low, high)
+        return self.np_random.integers(low, high)
 
     def _rand_float(self, low, high):
         """
@@ -1092,7 +1092,7 @@ class MultiGridEnv(gym.Env):
         Generate random boolean value
         """
 
-        return (self.np_random.randint(0, 2) == 0)
+        return (self.np_random.integers(0, 2) == 0)
 
     def _rand_elem(self, iterable):
         """
@@ -1133,8 +1133,8 @@ class MultiGridEnv(gym.Env):
         """
 
         return (
-            self.np_random.randint(xLow, xHigh),
-            self.np_random.randint(yLow, yHigh)
+            self.np_random.integers(xLow, xHigh),
+            self.np_random.integers(yLow, yHigh)
         )
 
     def place_obj(self,
@@ -1345,7 +1345,7 @@ class MultiGridEnv(gym.Env):
             if not self.see_through_walls:
                 vis_mask = grid.process_vis(agent_pos=(a.view_size // 2, a.view_size - 1))
             else:
-                vis_mask = np.ones(shape=(grid.width, grid.height), dtype=np.bool)
+                vis_mask = np.ones(shape=(grid.width, grid.height), dtype=bool)
 
             grids.append(grid)
             vis_masks.append(vis_mask)
