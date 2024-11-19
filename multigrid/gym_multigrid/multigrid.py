@@ -794,7 +794,7 @@ class Grid:
     #     return grid, vis_mask
 
     def process_vis(grid, agent_pos):
-        mask = np.zeros(shape=(grid.width, grid.height), dtype=np.bool)
+        mask = np.zeros(shape=(grid.width, grid.height), dtype=bool)
 
         mask[agent_pos[0], agent_pos[1]] = True
 

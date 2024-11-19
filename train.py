@@ -1,8 +1,8 @@
 import json
 import time
 import argparse
-from multigrid.find_shape import FindShape20x20Env
-from gym_multigrid.multigrid import *
+# from multigrid.find_shape import FindShape20x20Env
+from multigrid.gym_multigrid.envs.find_shape import FindShape20x20Env
 from State_Processing_Module.state_processing import StateProcessingModule
 
 def main(args):
