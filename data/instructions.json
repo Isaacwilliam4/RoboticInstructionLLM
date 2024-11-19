@@ -1,0 +1,223 @@
+[
+    {
+        "instruction": "go to the red boxes",
+        "targets": [
+            {
+                "shape": "box",
+                "color": "red"
+            }
+        ]
+    },
+    {
+        "instruction": "locate the blue balls",
+        "targets": [
+            {
+                "shape": "ball",
+                "color": "blue"
+            }
+        ]
+    },
+    {
+        "instruction": "find the green boxes",
+        "targets": [
+            {
+                "shape": "box",
+                "color": "green"
+            }
+        ]
+    },
+    {
+        "instruction": "go to the yellow objects",
+        "targets": [
+            {
+                "shape": "na",
+                "color": "yellow"
+            }
+        ]
+    },
+    {
+        "instruction": "search for the red balls",
+        "targets": [
+            {
+                "shape": "ball",
+                "color": "red"
+            }
+        ]
+    },
+    {
+        "instruction": "move to the green objects",
+        "targets": [
+            {
+                "shape": "na",
+                "color": "green"
+            }
+        ]
+    },
+    {
+        "instruction": "find the blue objects",
+        "targets": [
+            {
+                "shape": "na",
+                "color": "blue"
+            }
+        ]
+    },
+    {
+        "instruction": "go to the boxes, they are red",
+        "targets": [
+            {
+                "shape": "box",
+                "color": "red"
+            }
+        ]
+    },
+    {
+        "instruction": "go to the balls, they are green",
+        "targets": [
+            {
+                "shape": "ball",
+                "color": "green"
+            }
+        ]
+    },
+    {
+        "instruction": "move towards the yellow balls",
+        "targets": [
+            {
+                "shape": "ball",
+                "color": "yellow"
+            }
+        ]
+    },
+    {
+        "instruction": "locate the red boxes and blue balls",
+        "targets": [
+            {
+                "shape": "box",
+                "color": "red"
+            },
+            {
+                "shape": "ball",
+                "color": "blue"
+            }
+        ]
+    },
+    {
+        "instruction": "find the green balls and yellow boxes",
+        "targets": [
+            {
+                "shape": "ball",
+                "color": "green"
+            },
+            {
+                "shape": "box",
+                "color": "yellow"
+            }
+        ]
+    },
+    {
+        "instruction": "go to the blue boxes and red balls",
+        "targets": [
+            {
+                "shape": "box",
+                "color": "blue"
+            },
+            {
+                "shape": "ball",
+                "color": "red"
+            }
+        ]
+    },
+    {
+        "instruction": "search for the green boxes and yellow balls",
+        "targets": [
+            {
+                "shape": "box",
+                "color": "green"
+            },
+            {
+                "shape": "ball",
+                "color": "yellow"
+            }
+        ]
+    },
+    {
+        "instruction": "move to the yellow boxes and red balls",
+        "targets": [
+            {
+                "shape": "box",
+                "color": "yellow"
+            },
+            {
+                "shape": "ball",
+                "color": "red"
+            }
+        ]
+    },
+    {
+        "instruction": "go to the red objects and blue boxes",
+        "targets": [
+            {
+                "shape": "na",
+                "color": "red"
+            },
+            {
+                "shape": "box",
+                "color": "blue"
+            }
+        ]
+    },
+    {
+        "instruction": "find the blue balls and green boxes",
+        "targets": [
+            {
+                "shape": "ball",
+                "color": "blue"
+            },
+            {
+                "shape": "box",
+                "color": "green"
+            }
+        ]
+    },
+    {
+        "instruction": "go to the yellow balls and red boxes",
+        "targets": [
+            {
+                "shape": "ball",
+                "color": "yellow"
+            },
+            {
+                "shape": "box",
+                "color": "red"
+            }
+        ]
+    },
+    {
+        "instruction": "search for the green objects and red boxes",
+        "targets": [
+            {
+                "shape": "na",
+                "color": "green"
+            },
+            {
+                "shape": "box",
+                "color": "red"
+            }
+        ]
+    },
+    {
+        "instruction": "locate the blue balls and yellow boxes",
+        "targets": [
+            {
+                "shape": "ball",
+                "color": "blue"
+            },
+            {
+                "shape": "box",
+                "color": "yellow"
+            }
+        ]
+    }
+
+]

@@ -1,2 +1,44 @@
+# LaTeX auxiliary files
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.lof
+*.lot
+*.lol
+
+# Intermediate files
+*.dvi
+*.bbl
+*.blg
+*.brf
+
+# PDF and PostScript files
+*.pdf
+*.ps
+*.eps
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*~
+
+# Editor-specific files
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# VS Code-specific files
+.vscode/
+
+# Misc
 **/.venv/**
 **/__pycache__/**

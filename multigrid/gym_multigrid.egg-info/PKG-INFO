@@ -1,10 +1,5 @@
 Metadata-Version: 2.1
-Name: gym-multigrid
+Name: gym_multigrid
 Version: 0.0.1
-Summary: UNKNOWN
-Home-page: UNKNOWN
-License: UNKNOWN
-Platform: UNKNOWN
-
-UNKNOWN
-
+Requires-Dist: gym>=0.9.6
+Requires-Dist: numpy>=1.15.0
