@@ -132,7 +132,6 @@ class Agent():
         action_mask = torch.tensor(action_mask)
         z = torch.zeros_like(action_mask)
         action_mask = torch.where(action_mask == 0, torch.full(z.size(), float('-inf')), z)
-        print(action_mask)
 
         self.agent_a3c = NeuralNetBlock(
             input_space_size, 
@@ -147,10 +146,7 @@ class Agent():
         self.visual_and_audio_parser = DummyObj()
         self.memory = ReplayBuffer(state_dim=input_space_size, device=self.device)
 
-        self.optimizer = torch.optim.Adam(self.agent_a3c.parameters, lr=0.001)
-
-
-
+        self.optimizer = torch.optim.Adam(self.agent_a3c.parameters(), lr=0.001)
 
     def train(self):
         self.episode_num += 1
