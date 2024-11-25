@@ -4,36 +4,77 @@ import argparse
 # from multigrid.find_shape import FindShape20x20Env
 from multigrid.gym_multigrid.envs.find_shape import FindShape20x20Env
 from State_Processing_Module.state_processing import StateProcessingModule
+from RL_Block import AgentCoallition
+import random
+### Debugging ###
+import redis
+import pickle
+
+HUMAN_READABLE = True
+DEBUGGING = True
+
+redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
+
+AGENT_VIEW_SIZE = 7
+SEED = 2
+
 
 def main(args):
+    # TODO add num_episodes to the args
+    num_episodes = 20
     instructions_path = args.instructions_path
     with open(instructions_path, 'r') as file:
         data = json.load(file)
 
     state_processor = StateProcessingModule()
 
-    for task in data:
-        instruction = task['instruction']
-        targets = task['targets'][0]
-        shape = targets['shape']
-        color = targets['color']
+    task = data[0]
+    # TODO is this the best way to train?  Or should we loop through all the instructions?
+    # task = data[random.randint(0, len(data)-1)]
+    instruction = task['instruction']
+    targets = task['targets'][0]
+    shape = targets['shape']
+    color = targets['color']
 
-        env = FindShape20x20Env()
+    env = FindShape20x20Env(
+        render_mode='rgb_array' if (HUMAN_READABLE and DEBUGGING) else 'human',
+        num_agents=1,
+        num_balls=random.randint(5, 12),
+        num_boxes=random.randint(5, 12),
+        view_size=AGENT_VIEW_SIZE,
+        seed=SEED,
+    )
+    # Can we access the size of the state from the env?
+    hive = AgentCoallition(
+        num_agents=len(env.agents),
+        agent_view_size=env.agent_view_size,
+        state_processor=state_processor,
+        action_space_size=env.action_space.n,
+        train_every_n_iters=1
+    )
 
-        nb_agents = len(env.agents)
+    for ep in range(num_episodes):
+        # One iteration of this loop is one episode
+        state = env.reset()
+        done = False
+        while not done:
 
-        while True:
-            env.render(mode='human')
-            time.sleep(0.1)
+            if HUMAN_READABLE and DEBUGGING:
+                img = env.render(mode='rgb_array')
+                redis_client.lpush('frames', pickle.dumps(img))
+            elif HUMAN_READABLE:
+                env.render(mode='human')
+                time.sleep(0.1)
 
-            ac = [env.action_space.sample() for _ in range(nb_agents)]
 
-            obs, rewards, done, info = env.step(ac, (shape, color))
+            actions = hive.get_actions(state, instruction)
+            next_state, rewards, done, _ = env.step(actions, (shape, color))
+            hive.remember(state, actions, rewards, next_state, done, instruction)
 
-            multimodal_fusion = state_processor.multimodal_fusion(instruction, obs)
+            state = next_state
 
-            if done:
-                break
+        hive.train()
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Run task-based training with RL agents.')

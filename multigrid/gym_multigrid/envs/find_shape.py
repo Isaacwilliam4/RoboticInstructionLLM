@@ -7,7 +7,7 @@ COLORS = ['red', 'blue', 'green', 'yellow']
 SHAPES = ['ball', 'box']
 
 class FindShapeEnv(MultiGridEnv):
-    def __init__(self, size=20, num_balls=10, num_boxes=10, view_size=7, num_agents=3):
+    def __init__(self, size=20, num_balls=10, num_boxes=10, view_size=7, num_agents=3, **kwargs):
         self.num_agents = num_agents
         self.num_balls = num_balls
         self.num_boxes = num_boxes
@@ -27,6 +27,7 @@ class FindShapeEnv(MultiGridEnv):
             grid_size=size,
             max_steps=500,
             agents=agents,
+            **kwargs
         )
 
         # Define observation space
@@ -130,20 +131,22 @@ class FindShapeEnv(MultiGridEnv):
         """
         Render the grid to the console or use Matplotlib.
         """
-        super().render(mode)
+        return super().render(mode)
 
 
 class FindShape20x20Env(FindShapeEnv):
     """
     A 20x20 version of the FindShape environment.
     """
-    def __init__(self, render_mode='human'):
+    def __init__(self, render_mode='human', **kwargs):
         # Ensure that view_size is passed down to the parent class properly
-        super().__init__(size=20, view_size=7)  # Pass view_size to parent class
+        view_size = kwargs.pop('view_size', 7)  # Default to 7 if not provided
+        super().__init__(size=20, view_size=view_size, **kwargs)  # Pass view_size to parent class
         self.render_mode = render_mode
+        self.kwargs = kwargs
 
     def render(self, mode="human"):
-        super().render(mode=mode)
+        return super().render(mode=mode)
 
 
 # Register the environment for Gymnasium
