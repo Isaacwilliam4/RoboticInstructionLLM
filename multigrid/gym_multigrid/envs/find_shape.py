@@ -124,7 +124,7 @@ class FindShapeEnv(MultiGridEnv):
                     rewards[idx] += 5  # Additional reward for being the first to find it
 
         obs = self.process_observation(obs)
-        return obs.reshape(-1), rewards, done, info  # Reshape to match observation space
+        return obs.reshape(self.agent_view_size, self.agent_view_size, -1), rewards, done, info  # Reshape to match observation space
 
 
     def render(self, mode="human"):

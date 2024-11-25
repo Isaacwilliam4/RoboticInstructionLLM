@@ -40,7 +40,7 @@ class AgentCoallition:
 
         # The "Queen" of the hive
         self.agent_a3c = NeuralNetBlock(
-            input_space_size=self.state_processor.output_size, 
+            input_space_size=256, 
             output_space_size=self.action_space_size,
             lstm_hidden_size=256,
             lstm_num_layers=2,
@@ -51,7 +51,7 @@ class AgentCoallition:
 
         # The Queen's memory
         self.memory = ReplayBuffer(
-            state_dim=self.state_processor.output_size, 
+            state_dim=256, 
             num_agents=self.num_agents,
             agent_view_size=agent_view_size,
             device=self.device

@@ -26,7 +26,6 @@ def main(args):
     with open(instructions_path, 'r') as file:
         data = json.load(file)
 
-    state_processor = StateProcessingModule()
 
     task = data[0]
     # TODO is this the best way to train?  Or should we loop through all the instructions?
@@ -44,6 +43,7 @@ def main(args):
         view_size=AGENT_VIEW_SIZE,
         seed=SEED,
     )
+    state_processor = StateProcessingModule(num_agents=env.num_agents, view_size=env.agent_view_size)
     # Can we access the size of the state from the env?
     hive = AgentCoallition(
         num_agents=len(env.agents),
