@@ -40,12 +40,14 @@ class NeuralNetBlock(nn.Module):
         )
 
     def forward(self, x: torch.Tensor):
-        h0 = self.h0.repeat(1, x.size(0), 1)
-        c0 = self.h0.repeat(1, x.size(0), 1)
-        x = x.view(x.size(0), self.time_steps_fed_to_RNN, -1) ### TODO potentially adjust number of time steps being fed into the model
-        x = self.activation_layer(self.fc1(x))
+        # x dim = (batch_size, time_steps, agent_view_size, agent_view_size, 6*num_agents)
+        x = x.flatten(2)
+        h_state = self.h0.repeat(1, x.size(0), 1)
+        c_state = self.c0.repeat(1, x.size(0), 1)
+        x = self.fc1(x)
+        x = self.activation_layer(x)
 
-        out, _ = self.lstm(x, (h0, c0))
+        out, (h_state, c_state) = self.lstm(x, (h_state, c_state))
         out = self.fc_final(out[:, -1, :])
         values, action_logits = out[:, 0], out[:, 1:]
 

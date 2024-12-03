@@ -46,7 +46,7 @@ def main(args):
     state_processor = StateProcessingModule(num_agents=env.num_agents, view_size=env.agent_view_size)
     # Can we access the size of the state from the env?
     hive = AgentCoallition(
-        num_agents=len(env.agents),
+        num_agents=env.num_agents,
         agent_view_size=env.agent_view_size,
         state_processor=state_processor,
         action_space_size=env.action_space.n,
@@ -68,8 +68,8 @@ def main(args):
 
 
             actions = hive.get_actions(state, instruction)
-            next_state, rewards, done, _ = env.step(actions, (shape, color))
-            hive.remember(state, actions, rewards, next_state, done, instruction)
+            next_state, reward, done, _ = env.step(actions, (shape, color))
+            hive.remember(state, actions, reward, next_state, done, instruction)
 
             state = next_state
 

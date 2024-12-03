@@ -23,20 +23,21 @@ class SimpleAttention(nn.Module):
 class StateProcessingModule(nn.Module):
     def __init__(self, num_agents, view_size) -> None:
         super().__init__()
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.view_size = view_size
         self.num_agents = num_agents
         self.tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
-        self.model = DistilBertModel.from_pretrained('distilbert-base-uncased')
-        self.ffn = SimpleAttention(768, 7*7*6*num_agents)
+        self.model = DistilBertModel.from_pretrained('distilbert-base-uncased').to(self.device)
+        self.ffn = SimpleAttention(768, 7*7*6*num_agents).to(self.device)
 
     
     def multimodal_fusion(self, instruction, state):
-        inputs = self.tokenizer(instruction, return_tensors='pt')
+        inputs = self.tokenizer(instruction, return_tensors='pt').to(self.device)
         outputs = self.model(**inputs)
         last_hidden_state = outputs.last_hidden_state
         ffn_output = self.ffn(last_hidden_state)
         gate = ffn_output.view(self.view_size, self.view_size, (self.num_agents*6))
-        state = torch.tensor(state)
+        state = torch.tensor(state, device=self.device)
         gated_state_representation = state * gate
         # state_tens = torch.tensor(state).unsqueeze(0)
         # result = torch.cat([last_hidden_state, torch.tensor(state)], dim=1)
