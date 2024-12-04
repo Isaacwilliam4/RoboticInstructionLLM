@@ -85,8 +85,8 @@ class FindShapeEnv(MultiGridEnv):
         obs = self.process_observation(obs)
         return obs.reshape(self.agent_view_size, self.agent_view_size, -1)  # Reshape to match observation space
 
-    def step(self, actions, task_type):
-        shape, color = task_type
+    def step(self, actions, task_type, num_steps):
+        shapes, colors = task_type
         # Ensure actions is an iterable (list or array)
         if isinstance(actions, np.int64):
             actions = [actions]  # Convert single action to a list
@@ -113,11 +113,17 @@ class FindShapeEnv(MultiGridEnv):
                     front_cell = [front_cell]
 
                 for obj in front_cell:
-                    if obj.color == color:
-                        if shape == "ball" and isinstance(obj, Ball) or shape == "box" and isinstance(obj, Box):
-                            rewards[idx] += 100
-                            #pickup the object
-                            self.grid.set(*front_pos, None)
+                    for i in range(len(colors)):
+                        color = colors[i]
+                        shape = shapes[i]
+                        if obj.color == color or color == 'na':
+                            if shape == "ball" and isinstance(obj, Ball) \
+                            or shape == "box" and isinstance(obj, Box) \
+                            or shape == "na":
+                                rewards[idx] += 100
+                                #pickup the object
+                                self.grid.set(*front_pos, None)
+                                self.render(mode="human")
 
             done = True
 
@@ -125,16 +131,21 @@ class FindShapeEnv(MultiGridEnv):
                 for j in range(self.grid.height):
                     obj = self.grid.get(i,j)
                     if obj is not None:
-                        if obj.color == color:
-                            if shape == "ball" and isinstance(obj, Ball) or shape == "box" and isinstance(obj, Box):
-                                done = False 
-                                break
-                if not done:
-                    break
+                        for k in range(len(colors)):
+                            color = colors[k]
+                            shape = shapes[k]
+                            if obj.color == color or color == 'na':
+                                if shape == "ball" and isinstance(obj, Ball) \
+                                or shape == "box" and isinstance(obj, Box)\
+                                or shape == 'na':
+                                    done = False 
+                                    break
+            if done:
+                break
 
 
         obs = self.process_observation(obs)
-        return obs.reshape(self.agent_view_size, self.agent_view_size, -1), np.sum(rewards), done, info  # Reshape to match observation space
+        return obs.reshape(self.agent_view_size, self.agent_view_size, -1), np.sum(rewards) / num_steps, done, info  # Reshape to match observation space
 
 
     def render(self, mode="human"):

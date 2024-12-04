@@ -65,8 +65,10 @@ class AgentCoallition:
     def train(self):
         self.episode_num += 1
         if self.episode_num % self.train_every_n_iters != 0: return 
-        for _ in tqdm(range(self.steps_since_train), desc="Training Agents"):
-            self.learn_from_replay()
+        pbar = tqdm(range(self.steps_since_train), desc="training agents")
+        for _ in pbar:
+            loss = self.learn_from_replay()
+            pbar.set_postfix(loss=f"{loss:.2f}")
         self.steps_since_train = 0
 
     def remember(
@@ -123,6 +125,7 @@ class AgentCoallition:
         self.scaler.step(self.optimizer)
        
         self.scaler.update()
+        return total_loss.item()
 
 
     def get_actions(self, state, instruction):
