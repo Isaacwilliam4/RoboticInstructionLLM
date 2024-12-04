@@ -12,6 +12,7 @@ class FindShapeEnv(MultiGridEnv):
         self.num_balls = num_balls
         self.num_boxes = num_boxes
         self.size = size
+        self.prev_loc = [None for _ in range(num_agents)]
 
         # Initialize the world
         self.world = World()
@@ -90,41 +91,50 @@ class FindShapeEnv(MultiGridEnv):
         if isinstance(actions, np.int64):
             actions = [actions]  # Convert single action to a list
 
-        obs, rewards, done, info = super().step(actions)
+        obs, rewards, _, info = super().step(actions)
 
         # Reward logic for the agents
         for idx, agent in enumerate(self.agents):
-            # Check if the agent found the object (e.g., red ball or blue box)
-            found_object = False
-            agent_pos = agent.pos  # Get agent's position
 
-            # Assuming agent_pos is a numpy array [x, y]
-            x, y = agent_pos[0], agent_pos[1]  # Extract x and y coordinates from numpy array
+            if self.prev_loc[idx] is not None:
+                if not np.array_equal(np.array(self.prev_loc[idx]), np.array(agent.pos)):
+                    rewards[idx] += 10
+            else:
+                self.prev_loc[idx] = agent.pos
 
-            # Get the object at the agent's current position
-            current_cell = self.grid.get(x, y)  # Provide (x, y) coordinates
+            self.prev_loc[idx] = agent.pos            
+            front_pos = agent.front_pos
 
-            # Ensure current_cell is iterable, even if it's a single object
-            if not isinstance(current_cell, list):
-                current_cell = [current_cell]
+            front_cell = self.grid.get(*front_pos)
+            
+            if front_cell is not None:
+                # Ensure current_cell is iterable, even if it's a single object
+                if not isinstance(front_cell, list):
+                    front_cell = [front_cell]
 
-            for obj in current_cell:
-                if task_type == "ball" and isinstance(obj, Ball) and obj.color == task_color:
-                    found_object = True
+                for obj in front_cell:
+                    if obj.color == color:
+                        if shape == "ball" and isinstance(obj, Ball) or shape == "box" and isinstance(obj, Box):
+                            rewards[idx] += 100
+                            #pickup the object
+                            self.grid.set(*front_pos, None)
+
+            done = True
+
+            for i in range(self.grid.width):
+                for j in range(self.grid.height):
+                    obj = self.grid.get(i,j)
+                    if obj is not None:
+                        if obj.color == color:
+                            if shape == "ball" and isinstance(obj, Ball) or shape == "box" and isinstance(obj, Box):
+                                done = False 
+                                break
+                if not done:
                     break
-                elif task_type == "box" and isinstance(obj, Box) and obj.color == task_color:
-                    found_object = True
-                    break
 
-            if found_object and not self.target_found[idx]:
-                self.target_found[idx] = True
-                rewards[idx] += 10  # Reward for finding the target
-                if not self.first_found[idx]:
-                    self.first_found[idx] = True
-                    rewards[idx] += 5  # Additional reward for being the first to find it
 
         obs = self.process_observation(obs)
-        return obs.reshape(self.agent_view_size, self.agent_view_size, -1), rewards, done, info  # Reshape to match observation space
+        return obs.reshape(self.agent_view_size, self.agent_view_size, -1), np.sum(rewards), done, info  # Reshape to match observation space
 
 
     def render(self, mode="human"):

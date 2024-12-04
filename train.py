@@ -7,13 +7,13 @@ from State_Processing_Module.state_processing import StateProcessingModule
 from RL_Block import AgentCoallition
 import random
 ### Debugging ###
-import redis
+# import redis
 import pickle
 
 HUMAN_READABLE = True
-DEBUGGING = True
+DEBUGGING = False
 
-redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
+# redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 AGENT_VIEW_SIZE = 7
 SEED = 2
@@ -22,6 +22,8 @@ SEED = 2
 def main(args):
     # TODO add num_episodes to the args
     num_episodes = 20
+    max_steps = 50
+
     instructions_path = args.instructions_path
     with open(instructions_path, 'r') as file:
         data = json.load(file)
@@ -37,7 +39,7 @@ def main(args):
 
     env = FindShape20x20Env(
         render_mode='rgb_array' if (HUMAN_READABLE and DEBUGGING) else 'human',
-        num_agents=1,
+        num_agents=5,
         num_balls=random.randint(5, 12),
         num_boxes=random.randint(5, 12),
         view_size=AGENT_VIEW_SIZE,
@@ -52,11 +54,31 @@ def main(args):
         action_space_size=env.action_space.n,
         train_every_n_iters=1
     )
+    # Actions:
+    # available=['still', 'left', 'right', 'forward', 'pickup', 'drop', 'toggle', 'done']
+
+    # still = 0
+    # # Turn left, turn right, move forward
+    # left = 1
+    # right = 2
+    # forward = 3
+
+    # # Pick up an object
+    # pickup = 4
+    # # Drop an object
+    # drop = 5
+    # # Toggle/activate an object
+    # toggle = 6
+
+    # # Done completing task
+    # done = 7
 
     for ep in range(num_episodes):
+        print(f'Episode {ep}/{num_episodes}')
         # One iteration of this loop is one episode
         state = env.reset()
         done = False
+        num_steps = 0
         while not done:
 
             if HUMAN_READABLE and DEBUGGING:
@@ -72,6 +94,10 @@ def main(args):
             hive.remember(state, actions, reward, next_state, done, instruction)
 
             state = next_state
+
+            num_steps += 1
+            if num_steps >= max_steps:
+                done = True
 
         hive.train()
 

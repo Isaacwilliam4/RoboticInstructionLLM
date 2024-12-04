@@ -2,6 +2,7 @@ import torch
 from torch.amp import GradScaler, autocast
 from .neural_net import NeuralNetBlock
 from .replay_buffer import ReplayBuffer
+from tqdm import tqdm
 
 
 class AgentCoallition:
@@ -12,6 +13,7 @@ class AgentCoallition:
             state_processor,
             action_space_size,
             time_steps=1,
+            #only interested in actions that turn or move the agents
             action_mask=None,
             train_every_n_iters= 10,
             gamma=0.99,
@@ -28,8 +30,11 @@ class AgentCoallition:
         self.steps_since_train = 0
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-        self.action_mask = action_mask 
-        if action_mask is not None:
+
+        self.action_mask = []
+        for _ in range(self.num_agents):
+            self.action_mask.extend([0,1,1,1,0,0,0,0])
+        if self.action_mask is not None:
             self.action_mask = torch.tensor(self.action_mask)
             z = torch.zeros_like(self.action_mask)
             self.action_mask = torch.where(self.action_mask == 0, torch.full(z.size(), float('-inf')), z).to(self.device)
@@ -60,7 +65,7 @@ class AgentCoallition:
     def train(self):
         self.episode_num += 1
         if self.episode_num % self.train_every_n_iters != 0: return 
-        for _ in range(self.steps_since_train):
+        for _ in tqdm(range(self.steps_since_train), desc="Training Agents"):
             self.learn_from_replay()
         self.steps_since_train = 0
 
@@ -106,15 +111,19 @@ class AgentCoallition:
             action_log_probs = torch.log(action_probs.gather(1, actions.long()).squeeze())
             # action_log_probs = torch.log(action_probs[range(self.batch_size), actions.int()])
             advantages = (target_values - values).detach() 
-            actor_loss = -torch.mean(action_log_probs*advantages)
+            action_log_probs = action_log_probs.view(self.num_agents, -1)
+            actor_loss = 0
+            for action_log_prob in action_log_probs:
+                actor_loss += -torch.mean(action_log_prob*advantages)
        
             total_loss = actor_loss + critic_loss
 
         self.optimizer.zero_grad(set_to_none=True)
-        self.scaler.scale(total_loss).backward()
+        self.scaler.scale(total_loss).backward(retain_graph=True)
         self.scaler.step(self.optimizer)
        
         self.scaler.update()
+
 
     def get_actions(self, state, instruction):
         gated_state_representation = self.state_processor.multimodal_fusion(instruction, state)
