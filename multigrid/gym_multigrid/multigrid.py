@@ -14,12 +14,15 @@ TILE_PIXELS = 32
 # Map of color names to RGB values
 COLORS = {
     'red': np.array([255, 0, 0]),
-    'green': np.array([0, 255, 0]),
     'blue': np.array([0, 0, 255]),
-    'purple': np.array([112, 39, 195]),
+    'green': np.array([0, 255, 0]),
     'yellow': np.array([255, 255, 0]),
+    'purple': np.array([112, 39, 195]),
     'grey': np.array([100, 100, 100])
 }
+
+# COLORS = ['red', 'blue', 'green', 'yellow']
+# SHAPES = ['ball', 'box']
 
 COLOR_NAMES = sorted(list(COLORS.keys()))
 
@@ -32,10 +35,10 @@ class World:
     # Used to map colors to integers
     COLOR_TO_IDX = {
         'red': 0,
-        'green': 1,
-        'blue': 2,
-        'purple': 3,
-        'yellow': 4,
+        'blue': 1,
+        'green': 2,
+        'yellow': 3,
+        'purple': 4,
         'grey': 5
     }
 
@@ -1291,7 +1294,8 @@ class MultiGridEnv(gym.Env):
 
             # Pick up an object
             elif actions[i] == self.actions.pickup:
-                self._handle_pickup(i, rewards, fwd_pos, fwd_cell)
+                # self._handle_pickup(i, rewards, fwd_pos, fwd_cell)
+                pass
 
             # Drop an object
             elif actions[i] == self.actions.drop:

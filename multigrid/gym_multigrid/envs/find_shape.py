@@ -52,7 +52,7 @@ class FindShapeEnv(MultiGridEnv):
 
         # Place balls and boxes randomly
         for _ in range(self.num_balls):
-            index = np.random.random_integers(len(COLORS))  # Choose a random index
+            index = np.random.random_integers(len(COLORS)-1)  # Choose a random index
             self.place_obj(Ball(self.world, index=index))
         for _ in range(self.num_boxes):
             color = np.random.choice(COLORS)
@@ -84,6 +84,64 @@ class FindShapeEnv(MultiGridEnv):
         obs = super().reset()
         obs = self.process_observation(obs)
         return obs.reshape(self.agent_view_size, self.agent_view_size, -1)  # Reshape to match observation space
+    
+    def is_right_shape(self, shapes, obj):
+        for shape in shapes:
+            if shape == "ball" and isinstance(obj, Ball) \
+            or shape == "box" and isinstance(obj, Box) \
+            or shape == "na":
+                return True
+        return False
+
+    def is_right_color(self, colors, obj):
+        for color in colors:
+            if obj.color == color or color == 'na':
+                return True 
+        return False
+    
+    def _handle_pickup(self, front_pos, colors, shapes, rewards, agent_idx):
+        obj = self.grid.get(*front_pos)
+        
+        if obj is not None and obj.can_pickup():
+            if self.is_right_color(colors, obj):
+                if self.is_right_shape(shapes, obj):
+                    rewards[agent_idx] += 1000
+                    return
+                #give some reward for right color
+                rewards[agent_idx] += 100
+            elif self.is_right_shape(shapes, obj):
+                #give some reward for right shape
+                rewards[agent_idx] += 100
+            else:
+                #give small reward for collecting object
+                rewards[agent_idx] += 10
+            #remove object
+            self.grid.set(*front_pos, None)
+            self.render()
+        # #encourage picking up
+        # rewards[agent_idx] += 1
+    
+    def _task_complete(self, colors, shapes):
+        done = True
+
+        for i in range(self.grid.width):
+            for j in range(self.grid.height):
+                obj = self.grid.get(i,j)
+                if obj is not None:
+                    for k in range(len(colors)):
+                        color = colors[k]
+                        shape = shapes[k]
+                        if obj.color == color or color == 'na':
+                            if shape == "ball" and isinstance(obj, Ball) \
+                            or shape == "box" and isinstance(obj, Box)\
+                            or shape == 'na':
+                                done = False 
+                                break
+                if not done:
+                    break
+            if not done:
+                break
+        return done
 
     def step(self, actions, task_type, num_steps):
         shapes, colors = task_type
@@ -98,52 +156,19 @@ class FindShapeEnv(MultiGridEnv):
 
             if self.prev_loc[idx] is not None:
                 if not np.array_equal(np.array(self.prev_loc[idx]), np.array(agent.pos)):
-                    rewards[idx] += 10
+                    #give reward for moving
+                    rewards[idx] += 1
             else:
                 self.prev_loc[idx] = agent.pos
 
             self.prev_loc[idx] = agent.pos            
-            front_pos = agent.front_pos
 
-            front_cell = self.grid.get(*front_pos)
-            
-            if front_cell is not None:
-                # Ensure current_cell is iterable, even if it's a single object
-                if not isinstance(front_cell, list):
-                    front_cell = [front_cell]
+            #handle pickup
+            if actions[idx] == 4:
+                front_pos = agent.front_pos
+                self._handle_pickup(front_pos, colors, shapes, rewards, idx)
 
-                for obj in front_cell:
-                    for i in range(len(colors)):
-                        color = colors[i]
-                        shape = shapes[i]
-                        if obj.color == color or color == 'na':
-                            if shape == "ball" and isinstance(obj, Ball) \
-                            or shape == "box" and isinstance(obj, Box) \
-                            or shape == "na":
-                                rewards[idx] += 100
-                                #pickup the object
-                                self.grid.set(*front_pos, None)
-                                self.render(mode="human")
-
-            done = True
-
-            for i in range(self.grid.width):
-                for j in range(self.grid.height):
-                    obj = self.grid.get(i,j)
-                    if obj is not None:
-                        for k in range(len(colors)):
-                            color = colors[k]
-                            shape = shapes[k]
-                            if obj.color == color or color == 'na':
-                                if shape == "ball" and isinstance(obj, Ball) \
-                                or shape == "box" and isinstance(obj, Box)\
-                                or shape == 'na':
-                                    done = False 
-                                    break
-            if done:
-                break
-
-
+        done = self._task_complete(colors, shapes)
         obs = self.process_observation(obs)
         return obs.reshape(self.agent_view_size, self.agent_view_size, -1), np.sum(rewards) / num_steps, done, info  # Reshape to match observation space
 

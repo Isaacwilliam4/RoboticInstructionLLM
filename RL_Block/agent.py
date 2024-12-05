@@ -13,7 +13,6 @@ class AgentCoallition:
             state_processor,
             action_space_size,
             time_steps=1,
-            #only interested in actions that turn or move the agents
             action_mask=None,
             train_every_n_iters= 10,
             gamma=0.99,
@@ -33,7 +32,7 @@ class AgentCoallition:
 
         self.action_mask = []
         for _ in range(self.num_agents):
-            self.action_mask.extend([0,1,1,1,0,0,0,0])
+            self.action_mask.extend([0,1,1,1,1,0,0,0])
         if self.action_mask is not None:
             self.action_mask = torch.tensor(self.action_mask)
             z = torch.zeros_like(self.action_mask)
@@ -66,10 +65,16 @@ class AgentCoallition:
         self.episode_num += 1
         if self.episode_num % self.train_every_n_iters != 0: return 
         pbar = tqdm(range(self.steps_since_train), desc="training agents")
+        avg_rewards = []
         for _ in pbar:
-            loss = self.learn_from_replay()
-            pbar.set_postfix(loss=f"{loss:.2f}")
+            avg_rew, total_loss = self.learn_from_replay()
+            avg_rewards.append(avg_rew)
+            pbar.set_postfix(average_reward=f"{avg_rew:.2f}")
+        pbar.close()
+        print(f"Average Episode Reward: {torch.mean(torch.tensor(avg_rewards)):.2f}")
         self.steps_since_train = 0
+        del total_loss
+
 
     def remember(
             self, 
@@ -103,7 +108,7 @@ class AgentCoallition:
 
         with autocast(device_type=self.device.type):
             next_values_y_hat, _ = self.agent_a3c(next_states)
-            target_values = rewards + (self.gamma * next_values_y_hat * (1-dones))
+            target_values = rewards.flatten() + (self.gamma * next_values_y_hat * (1-dones).flatten())
             target_values = target_values.detach()
             values, action_probs = self.agent_a3c(states)
             critic_loss = torch.nn.functional.mse_loss(values, target_values)
@@ -121,11 +126,13 @@ class AgentCoallition:
             total_loss = actor_loss + critic_loss
 
         self.optimizer.zero_grad(set_to_none=True)
+        # self.scaler.scale(total_loss).backward(retain_graph=True)
         self.scaler.scale(total_loss).backward(retain_graph=True)
+
         self.scaler.step(self.optimizer)
        
         self.scaler.update()
-        return total_loss.item()
+        return torch.mean(rewards), total_loss
 
 
     def get_actions(self, state, instruction):

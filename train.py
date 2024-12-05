@@ -21,8 +21,8 @@ SEED = 2
 
 def main(args):
     # TODO add num_episodes to the args
-    num_episodes = 5
-    max_steps = 100
+    num_episodes = 50
+    max_steps = 50
 
     instructions_path = args.instructions_path
     with open(instructions_path, 'r') as file:
@@ -72,40 +72,44 @@ def main(args):
 
     # # Done completing task
     # done = 7
+    for task in data:
+        for ep in range(num_episodes):
+                instruction = task['instruction']
+                targets = task['targets']
+                shapes = [x['shape'] for x in targets]
+                colors = [x['color'] for x in targets]
 
-    for ep in range(num_episodes):
-        for task in data:
-            instruction = task['instruction']
-            targets = task['targets']
-            shapes = [x['shape'] for x in targets]
-            colors = [x['color'] for x in targets]
+                print(f'Episode {ep}/{num_episodes}| instruction : {instruction} | shape : {shapes} | color : {colors}')
+                # One iteration of this loop is one episode
+                done = True
 
-            print(f'Episode {ep}/{num_episodes}| instruction : {instruction} | shape : {shapes} | color : {colors}')
-            # One iteration of this loop is one episode
-            state = env.reset()
-            done = False
-            num_steps = 1
-            while not done:
+                while done:
+                    state = env.reset()
+                    done = env._task_complete(colors, shapes)
 
-                if HUMAN_READABLE and DEBUGGING:
-                    img = env.render(mode='rgb_array')
-                    redis_client.lpush('frames', pickle.dumps(img))
-                elif HUMAN_READABLE:
-                    env.render(mode='human')
-                    # time.sleep(0.1)
+                done = False
+                num_steps = 1
+                while not done:
+
+                    if HUMAN_READABLE and DEBUGGING:
+                        img = env.render(mode='rgb_array')
+                        redis_client.lpush('frames', pickle.dumps(img))
+                    elif HUMAN_READABLE:
+                        env.render(mode='human')
+                        # time.sleep(0.1)
 
 
-                actions = hive.get_actions(state, instruction)
-                next_state, reward, done, _ = env.step(actions, (shapes, colors), num_steps)
-                hive.remember(state, actions, reward, next_state, done, instruction)
+                    actions = hive.get_actions(state, instruction)
+                    next_state, reward, done, _ = env.step(actions, (shapes, colors), num_steps)
+                    hive.remember(state, actions, reward, next_state, done, instruction)
 
-                state = next_state
+                    state = next_state
 
-                num_steps += 1
-                if num_steps >= max_steps:
-                    done = True
+                    num_steps += 1
+                    if num_steps >= max_steps:
+                        done = True
 
-            hive.train()
+                hive.train()
 
 
 if __name__ == '__main__':
