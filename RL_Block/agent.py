@@ -14,9 +14,9 @@ class AgentCoallition:
             action_space_size,
             time_steps=1,
             action_mask=None,
-            train_every_n_iters= 10,
+            train_every_n_iters=10,
             gamma=0.99,
-            batch_size=64,
+            batch_size=16,
             num_channels=6,
         ):
         self.scaler = GradScaler()

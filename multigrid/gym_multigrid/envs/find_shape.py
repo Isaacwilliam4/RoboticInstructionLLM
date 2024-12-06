@@ -106,6 +106,8 @@ class FindShapeEnv(MultiGridEnv):
             if self.is_right_color(colors, obj):
                 if self.is_right_shape(shapes, obj):
                     rewards[agent_idx] += 1000
+                    self.grid.set(*front_pos, None)
+                    self.render()
                     return
                 #give some reward for right color
                 rewards[agent_idx] += 100
@@ -118,6 +120,9 @@ class FindShapeEnv(MultiGridEnv):
             #remove object
             self.grid.set(*front_pos, None)
             self.render()
+        else:
+            #penalize for grabbing nothing
+            rewards[agent_idx] -= 1
         # #encourage picking up
         # rewards[agent_idx] += 1
     
@@ -157,7 +162,7 @@ class FindShapeEnv(MultiGridEnv):
             if self.prev_loc[idx] is not None:
                 if not np.array_equal(np.array(self.prev_loc[idx]), np.array(agent.pos)):
                     #give reward for moving
-                    rewards[idx] += 1
+                    rewards[idx] += 2
             else:
                 self.prev_loc[idx] = agent.pos
 

@@ -9,6 +9,7 @@ import random
 ### Debugging ###
 # import redis
 import pickle
+import numpy as np
 
 HUMAN_READABLE = True
 DEBUGGING = False
@@ -21,8 +22,8 @@ SEED = 2
 
 def main(args):
     # TODO add num_episodes to the args
-    num_episodes = 50
-    max_steps = 50
+    num_episodes = 5
+    max_steps = 1000
 
     instructions_path = args.instructions_path
     with open(instructions_path, 'r') as file:
