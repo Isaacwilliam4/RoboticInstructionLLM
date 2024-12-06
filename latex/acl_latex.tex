@@ -170,8 +170,61 @@ The minigrid environment provides many building blocks for reinforcement learnin
 The design of the framework as shown in Figure~\ref{fig:modeloverview} makes it easy to deligate the tasks into three separate stages for the project. 
 
 \subsection{Environment Setup}
+Kaiden McMillen was responsible for setting up the environment for training a reinforcement learning model capable of handling multiple agents simultaneously. The final environment was built using \texttt{gym-multigrid}, an extension of \texttt{gym-minigrid}, tailored to support multi-agent interactions. The environment is designed to provide a robust testbed for agents to learn coordination and decision-making tasks. Below, we describe the key components of the environment.
 
-Kaiden McMillen will be in charge of setting up the environment to train the reinforcement learning model. This will include customizing Minigrid a environment as well as the rewards given to be able to handle multiple agents in a single environment. This will insure that the correct state information can be passed to the State Processing module.
+\paragraph{Overview} 
+The environment spans a 20x20 grid and supports the simultaneous training of multiple agents (default: 3). It includes dynamic object placement and a custom reward structure to encourage strategic behavior. Agents aim to locate, identify, and interact with specific objects (balls and boxes) based on their colors and shapes.
+
+\paragraph{Grid Setup} 
+The grid is surrounded by walls to confine the agents and ensure structured navigation. Objects are randomly placed in the grid to introduce variability during training. Specifically, 10 balls and 10 boxes of various colors (red, blue, green, and yellow) are randomly distributed. Agents are also initialized at random positions within the grid.
+
+\paragraph{Agents} 
+Each agent has a 7x7 field of view and can perform actions such as moving, picking up objects, and interacting with the environment. The reward structure incentivizes agents to explore, identify, and collaborate effectively. Custom observations are processed into a flattened format suitable for use with vectorized environments, with observation shapes of $(7, 7, 12)$.
+
+\paragraph{Inspiration from Existing Games}
+The structure of this environment was partly inspired by the \texttt{collect\_game} environment in \texttt{gym-multigrid}. Similar to \texttt{collect\_game}, our environment involves agents interacting with objects in a shared grid world, focusing on identifying and gathering specific items. Additionally, both environments emphasize multi-agent cooperation and the challenges of competing or coordinating in a confined space. Unlike \texttt{soccer\_game}, which centers around adversarial dynamics, our design encourages agents to collaborate to achieve shared objectives. This balance of inspiration allows for a unique environment tailored to exploration, coordination, and efficient decision-making.
+
+\paragraph{Reward Function} 
+Rewards are structured to encourage correct identification and collection of objects:
+\begin{itemize}
+    \item Agents receive 1000 points for identifying and collecting the correct object.
+    \item Partial rewards of 100 points are provided for collecting an object that matches either the correct color or shape.
+    \item Small rewards are given for movement and interaction, while penalties are applied for invalid actions.
+\end{itemize}
+
+\paragraph{Termination Condition} 
+The task completes when all target objects are identified and collected. The environment fosters coordination and efficiency among agents by emphasizing group task completion over isolated actions.
+
+\paragraph{Technical Implementation} 
+The environment extends the \texttt{MultiGridEnv} class and introduces custom methods for grid generation, observation processing, and action handling:
+\begin{itemize}
+    \item \textbf{Grid Initialization:} Objects and agents are placed randomly on the grid. Walls surround the environment to prevent agents from leaving.
+    \item \textbf{Step Logic:} Agent actions, such as movement and object interaction, are processed. Rewards are assigned based on the correctness of these actions.
+    \item \textbf{Task Completion:} The environment tracks whether all target objects are collected to determine when the task is complete.
+    \item \textbf{Rendering:} The environment supports rendering for both console and graphical outputs.
+\end{itemize}
+
+\paragraph{Gymnasium Integration} 
+The environment is registered as a Gymnasium-compatible environment with the identifier \texttt{FindShape20x20-v0}. This ensures compatibility with reinforcement learning frameworks that follow the Gym API:
+\begin{verbatim}
+import gymnasium as gym
+
+gym.envs.registration.register(
+    id="FindShape20x20-v0",
+    entry_point="find_shape:FindShape20x20Env",
+)
+\end{verbatim}
+
+\paragraph{Customization and Extensibility}
+The environment can be customized to suit various tasks:
+\begin{itemize}
+    \item Adjustments to the number of agents, objects, or grid size can be made.
+    \item Reward functions can be modified for different objectives.
+    \item The environment allows for testing agent behaviors under dynamic and randomized conditions.
+\end{itemize}
+
+This environment supports reinforcement learning research by enabling agents to develop sophisticated strategies in a multi-agent, multi-task context.
+
 
 \subsection{State Processing Module}
 Isaac Peterson will setup the state processing module. This includes handling the state information from the Minigrid environment and the input instruction $L$, passing them through their appropriate models and creating the output vector $X$ to be processed by the reinforcement learning model. 
