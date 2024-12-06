@@ -3,7 +3,8 @@ from torch.amp import GradScaler, autocast
 from .neural_net import NeuralNetBlock
 from .replay_buffer import ReplayBuffer
 from tqdm import tqdm
-
+import matplotlib.pyplot as plt
+import numpy as np
 
 class AgentCoallition:
     def __init__(
@@ -67,13 +68,14 @@ class AgentCoallition:
         pbar = tqdm(range(self.steps_since_train), desc="training agents")
         avg_rewards = []
         for _ in pbar:
-            avg_rew, total_loss = self.learn_from_replay()
+            avg_rew, total_loss, action_log_probs = self.learn_from_replay()
             avg_rewards.append(avg_rew)
             pbar.set_postfix(average_reward=f"{avg_rew:.2f}")
         pbar.close()
         print(f"Average Episode Reward: {torch.mean(torch.tensor(avg_rewards)):.2f}")
         self.steps_since_train = 0
         del total_loss
+
 
 
     def remember(
@@ -132,7 +134,7 @@ class AgentCoallition:
         self.scaler.step(self.optimizer)
        
         self.scaler.update()
-        return torch.mean(rewards), total_loss
+        return torch.mean(rewards), total_loss, action_log_probs
 
 
     def get_actions(self, state, instruction):
@@ -141,4 +143,4 @@ class AgentCoallition:
         _, action_probs = self.agent_a3c(g_s_r.unsqueeze(0)) # This is so that it's a batch size of 1
         action_probs = action_probs.squeeze(dim=0)
         action_probs = action_probs.view(self.num_agents, -1)
-        return torch.multinomial(action_probs, 1).squeeze(1)
+        return torch.multinomial(action_probs, 1).squeeze(1), action_probs
