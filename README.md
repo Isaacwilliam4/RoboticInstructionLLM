@@ -1,14 +1,15 @@
 # RoboticInstructionLLM
 
-First you need to setup an environment, for this project it should be python 3.10 you can do this in conda with the following command
+First you need to setup an environment, for this project it should be python 3.10 you can do this in conda with the following commands
 
 ```
 conda create -n robotllm python=3.10 -y
-conda activate robotllm
-conda install -c conda-forge numpy matplotlib
+conda activate robotllmenv
+conda install -c conda-forge numpy matplotlib gymnasium transformers -y
+conda install pytorch torchvision torchaudio -c pytorch
 ```
 
-Then you need to install the python package to get the environment to work correctly
+Then you need to install the following python packages with pip to get the environment to work correctly
 
 ```
 cd multigrid/
@@ -24,7 +25,7 @@ The `train.py` script is designed to train reinforcement learning agents to perf
 To run the script, navigate to the project directory and use the following command in your terminal:
 
 ```bash
-python train.py ./data/instructions.json --num_episodes 20 --max_steps 200 --agent_view_size 7 --num_agents 3 --seed 42 --train_every_n_iters 1 --prob_fig_path ./log_probs.png
+python train.py ./data/instructions.json --num_episodes 20 --max_steps 1000 --agent_view_size 7 --num_agents 3 --seed 42 --train_every_n_iters 1 --prob_fig_path ./log_probs.png
 ```
 
 #### Explanation of Arguments:
